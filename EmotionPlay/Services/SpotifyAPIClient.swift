@@ -1,114 +1,163 @@
 import Foundation
-import UIKit
 
-final class SpotifyAPIClient: MusicProviderClient {
-  private let auth: SpotifyAuthManager
-  init(auth: SpotifyAuthManager) { self.auth = auth }
 
-  var isAuthorized: Bool { auth.isAuthorized }
+// MARK: - Client
+final class SpotifyAPIClient: Recommender {
+    private let auth: SpotifyAuthProviding
+    private let base = URL(string: "https://api.spotify.com/v1")!
+    private var cachedUserID: String?
 
-  func authorize(from viewController: UIViewController) async throws {
-    try await auth.authorize(from: viewController)
-  }
-
-  // MARK: - Helpers
-  private func authedRequest(
-    _ url: URL,
-    method: String = "GET",
-    jsonBody: [String: Any]? = nil
-  ) async throws -> (Data, HTTPURLResponse) {
-    let token = try await auth.ensureFreshToken()
-    var req = URLRequest(url: url)
-    req.httpMethod = method
-    req.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
-    if let jsonBody = jsonBody {
-      req.httpBody = try JSONSerialization.data(withJSONObject: jsonBody)
-      req.setValue("application/json", forHTTPHeaderField: "Content-Type")
-    }
-    let (data, resp) = try await URLSession.shared.data(for: req)
-    guard let http = resp as? HTTPURLResponse else { throw URLError(.badServerResponse) }
-    if http.statusCode == 429 { throw URLError(.cannotLoadFromNetwork) } // rate-limited
-    guard (200..<300).contains(http.statusCode) else { throw URLError(.badServerResponse) }
-    return (data, http)
-  }
-
-  private func currentUserID() async throws -> String {
-    let url = URL(string: "https://api.spotify.com/v1/me")!
-    let (data, _) = try await authedRequest(url)
-    struct Me: Decodable { let id: String }
-    return try JSONDecoder().decode(Me.self, from: data).id
-  }
-
-  // Search (first result)
-  private func searchArtistID(named name: String) async throws -> String? {
-    let q = name.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? name
-    let url = URL(string: "https://api.spotify.com/v1/search?q=\(q)&type=artist&limit=1")!
-    let (data, _) = try await authedRequest(url)
-    struct Resp: Decodable { struct Artists: Decodable { struct Item: Decodable { let id: String }; let items: [Item] }; let artists: Artists }
-    return try JSONDecoder().decode(Resp.self, from: data).artists.items.first?.id
-  }
-
-  private func searchTrackID(title: String, artist: String) async throws -> String? {
-    let q = "track:\(title) artist:\(artist)".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
-    let url = URL(string: "https://api.spotify.com/v1/search?q=\(q)&type=track&limit=1")!
-    let (data, _) = try await authedRequest(url)
-    struct Resp: Decodable { struct Tracks: Decodable { struct Item: Decodable { let id: String }; let items: [Item] }; let tracks: Tracks }
-    return try JSONDecoder().decode(Resp.self, from: data).tracks.items.first?.id
-  }
-
-  // MARK: - Recommender
-  func recommendTrackURIs(for mood: Mood, seedArtists: [String], seedTracks: [String], limit: Int) async throws -> [String] {
-    // Resolve up to 5 seeds total
-    var artistIDs: [String] = []
-    for a in seedArtists.prefix(3) {
-      if let id = try await searchArtistID(named: a) { artistIDs.append(id) }
+    init(auth: SpotifyAuthProviding) {
+        self.auth = auth
     }
 
-    var trackIDs: [String] = []
-    for s in seedTracks.prefix(2) {
-      let parts = s.split(separator: "–", maxSplits: 1).map { String($0).trimmingCharacters(in: .whitespaces) }
-      if parts.count == 2, let id = try await searchTrackID(title: parts[0], artist: parts[1]) { trackIDs.append(id) }
+    // MARK: Recommender
+
+    func recommendTrackURIs(
+        for mood: Mood,
+        preferredGenres: [String],
+        limit: Int
+    ) async throws -> [String] {
+        let token = try auth.validTokenOrThrow()
+
+        let moodGenres = defaultGenres(for: mood)
+        let seeds = (preferredGenres.isEmpty ? moodGenres : preferredGenres)
+            .map { $0.lowercased() }
+            .uniqued()
+            .prefix(5)
+
+        guard !seeds.isEmpty else { return [] }
+
+        var comps = URLComponents(url: base.appendingPathComponent("recommendations"), resolvingAgainstBaseURL: false)!
+        comps.queryItems = [
+            URLQueryItem(name: "limit", value: String(min(max(limit, 1), 100))),
+            URLQueryItem(name: "seed_genres", value: seeds.joined(separator: ",")),
+            URLQueryItem(name: "min_popularity", value: "20")
+        ]
+
+        let req = try authorizedRequest(url: try comps.url.unwrapped(), method: "GET", token: token)
+        let (data, resp) = try await URLSession.shared.data(for: req)
+        try ensureOK(resp, data)
+
+        let decoded = try JSONDecoder().decode(RecommendationsResponse.self, from: data)
+        return decoded.tracks.map { $0.uri }
     }
 
-    let f = features(for: mood)
-    var comps = URLComponents(string: "https://api.spotify.com/v1/recommendations")!
-    var items: [URLQueryItem] = [
-      .init(name: "limit", value: String(limit)),
-      .init(name: "target_valence", value: String((f.valence.lowerBound + f.valence.upperBound)/2)),
-      .init(name: "target_energy", value: String((f.energy.lowerBound + f.energy.upperBound)/2)),
-      .init(name: "target_danceability", value: String((f.danceability.lowerBound + f.danceability.upperBound)/2)),
-      .init(name: "min_tempo", value: String(f.tempo.lowerBound)),
-      .init(name: "max_tempo", value: String(f.tempo.upperBound))
-    ]
-    if !artistIDs.isEmpty { items.append(.init(name: "seed_artists", value: artistIDs.joined(separator: ","))) }
-    if !trackIDs.isEmpty { items.append(.init(name: "seed_tracks", value: trackIDs.joined(separator: ","))) }
-    if artistIDs.isEmpty && trackIDs.isEmpty { items.append(.init(name: "seed_genres", value: "pop")) } // safe default
-    comps.queryItems = items
+    func createPlaylist(
+        name: String,
+        description: String?,
+        isPublic: Bool
+    ) async throws -> (id: String, url: URL?) {
+        let token = try auth.validTokenOrThrow()
+        let userID = try await currentUserID(using: token)
 
-    let url = comps.url!
-    let (data, _) = try await authedRequest(url)
-    struct RecResp: Decodable { struct Track: Decodable { let uri: String }; let tracks: [Track] }
-    let rec = try JSONDecoder().decode(RecResp.self, from: data)
-    return rec.tracks.map { $0.uri }
-  }
+        var req = try authorizedRequest(
+            url: base.appendingPathComponent("users/\(userID)/playlists"),
+            method: "POST",
+            token: token
+        )
+        req.setValue("application/json", forHTTPHeaderField: "Content-Type")
 
-  // MARK: - Playlist creation
-  func createPlaylist(name: String, description: String?, isPublic: Bool)
-  async throws -> (id: String, url: URL?) {
-    let userID = try await currentUserID()
-    let url = URL(string: "https://api.spotify.com/v1/users/\(userID)/playlists")!
-    let body: [String: Any] = ["name": name, "public": isPublic, "description": description ?? ""]
-    let (data, _) = try await authedRequest(url, method: "POST", jsonBody: body)
-    struct CreateResp: Decodable { let id: String; let external_urls: [String: String]? }
-    let resp = try JSONDecoder().decode(CreateResp.self, from: data)
-    let external = resp.external_urls?["spotify"].flatMap(URL.init(string:))
-    return (resp.id, external)
-  }
+        struct Body: Encodable { let name: String; let `public`: Bool; let description: String? }
+        req.httpBody = try JSONEncoder().encode(Body(name: name, public: isPublic, description: description))
 
-  func addTracks(to playlistID: String, uris: [String]) async throws {
-    let url = URL(string: "https://api.spotify.com/v1/playlists/\(playlistID)/tracks")!
-    let body: [String: Any] = ["uris": uris]
-    _ = try await authedRequest(url, method: "POST", jsonBody: body)
-  }
+        let (data, resp) = try await URLSession.shared.data(for: req)
+        try ensureOK(resp, data)
+
+        let created = try JSONDecoder().decode(PlaylistCreated.self, from: data)
+        let url = created.external_urls?["spotify"].flatMap(URL.init(string:))
+        return (created.id, url)
+    }
+
+    func addTracks(to playlistID: String, uris: [String]) async throws {
+        guard !uris.isEmpty else { return }
+        let token = try auth.validTokenOrThrow()
+
+        var req = try authorizedRequest(
+            url: base.appendingPathComponent("playlists/\(playlistID)/tracks"),
+            method: "POST",
+            token: token
+        )
+        req.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        struct Body: Encodable { let uris: [String] }
+        req.httpBody = try JSONEncoder().encode(Body(uris: uris))
+
+        let (data, resp) = try await URLSession.shared.data(for: req)
+        try ensureOK(resp, data)
+    }
+
+    // MARK: Helpers
+
+    private func currentUserID(using token: String) async throws -> String {
+        if let id = cachedUserID { return id }
+        let req = try authorizedRequest(url: base.appendingPathComponent("me"), method: "GET", token: token)
+        let (data, resp) = try await URLSession.shared.data(for: req)
+        try ensureOK(resp, data)
+        struct Me: Decodable { let id: String }
+        let me = try JSONDecoder().decode(Me.self, from: data)
+        cachedUserID = me.id
+        return me.id
+    }
+
+    private func authorizedRequest(url: URL, method: String, token: String) throws -> URLRequest {
+        var req = URLRequest(url: url)
+        req.httpMethod = method
+        req.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+        return req
+    }
+
+    private func ensureOK(_ response: URLResponse, _ data: Data) throws {
+        guard let http = response as? HTTPURLResponse, (200..<300).contains(http.statusCode) else {
+            let status = (response as? HTTPURLResponse)?.statusCode ?? -1
+            let body = String(data: data, encoding: .utf8) ?? ""
+            throw SpotifyError.http(status: status, body: body)
+        }
+    }
+
+    // IMPORTANT: Match YOUR Mood enum. I removed `.romantic`.
+    private func defaultGenres(for mood: Mood) -> [String] {
+        switch mood {
+        case .happy:     return ["happy", "pop", "dance", "party", "summer"]
+        case .sad:       return ["sad", "acoustic", "piano", "singer-songwriter"]
+        case .calm:      return ["chill", "ambient", "sleep", "new-age", "focus"]
+        case .energetic: return ["work-out", "edm", "dance", "electro", "techno"]
+        case .angry:     return ["metal", "hard-rock", "punk", "rock"]
+        case .focused:   return ["focus", "instrumental", "lo-fi", "study"]
+        @unknown default: return ["pop"]
+        }
+    }
 }
 
+// MARK: - Models
+
+private struct RecommendationsResponse: Decodable { let tracks: [Track] }
+private struct Track: Decodable { let id: String; let uri: String }
+private struct PlaylistCreated: Decodable { let id: String; let external_urls: [String:String]? }
+
+// MARK: - Errors
+
+enum SpotifyError: Error, LocalizedError {
+    case http(status: Int, body: String)
+    case notAuthenticated
+    var errorDescription: String? {
+        switch self {
+        case .http(let s, let b): return "Spotify HTTP \(s): \(b)"
+        case .notAuthenticated:   return "Not authenticated with Spotify."
+        }
+    }
+}
+
+// MARK: - Tiny utilities
+
+private extension Optional where Wrapped == URL {
+    func unwrapped() throws -> URL {
+        guard let self else { throw SpotifyError.http(status: -1, body: "Bad URL") }
+        return self
+    }
+}
+private extension Sequence where Element: Hashable {
+    func uniqued() -> [Element] {
+        var seen = Set<Element>()
+        return filter { seen.insert($0).inserted }
+    }
+}

@@ -8,36 +8,24 @@
 import SwiftUI
 
 extension Color {
-  // Hexes pulled from your image (approximate):
-  // left to right: #1F2426, #196E14, #2A911E, #4BB225, #9FE11F, #50F335, #2E2E2E
-  static let appBackground    = Color(hex: 0x1F2426)
-  static let appGreen1        = Color(hex: 0x196E14)
-  static let appGreen2        = Color(hex: 0x2A911E)
-  static let appGreen3        = Color(hex: 0x4BB225)
-  static let appGreen4        = Color(hex: 0x9FE11F)
-  static let appGreenAccent   = Color(hex: 0x50F335)
-  static let appSurfaceDark   = Color(hex: 0x2E2E2E)
-
-  static let appTint          = appGreenAccent
+  static let appBackground  = Color(hex: 0x1F2426)
+  static let appGreen1      = Color(hex: 0x196E14)
+  static let appGreen2      = Color(hex: 0x2A911E)
+  static let appGreen3      = Color(hex: 0x4BB225)
+  static let appGreen4      = Color(hex: 0x9FE11F)
+  static let appGreenAccent = Color(hex: 0x50F335)
+  static let appSurfaceDark = Color(hex: 0x2E2E2E)
+  static let appTint        = appGreenAccent
 }
 
 extension Color {
   init(hex: UInt, alpha: Double = 1.0) {
-    self.init(
-      .sRGB,
+    self.init(.sRGB,
       red:   Double((hex >> 16) & 0xff) / 255,
-      green: Double((hex >> 08) & 0xff) / 255,
-      blue:  Double((hex >> 00) & 0xff) / 255,
+      green: Double((hex >>  8) & 0xff) / 255,
+      blue:  Double((hex >>  0) & 0xff) / 255,
       opacity: alpha
     )
   }
 }
 
-struct AppTheme {
-  static func apply() {
-    UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor: UIColor.white]
-    UINavigationBar.appearance().titleTextAttributes      = [.foregroundColor: UIColor.white]
-    UITabBar.appearance().barTintColor = UIColor(Color.appSurfaceDark)
-    UITabBar.appearance().unselectedItemTintColor = UIColor.systemGray3
-  }
-}

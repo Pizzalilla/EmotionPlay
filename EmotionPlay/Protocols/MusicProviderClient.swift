@@ -7,7 +7,9 @@
 
 import UIKit
 
-public protocol MusicProviderClient: Recommender, PlaylistCreator {
-  var isAuthorized: Bool { get }
-  func authorize(from viewController: UIViewController) async throws
+/// Minimal auth surface your client provides (Spotify etc.)
+protocol MusicProviderClient: AnyObject {
+    var isAuthorized: Bool { get }
+    func authorize(from viewController: UIViewController) async throws
 }
+

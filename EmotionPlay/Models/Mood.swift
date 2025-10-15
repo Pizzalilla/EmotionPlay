@@ -7,7 +7,16 @@
 
 import Foundation
 
-public enum Mood: String, CaseIterable, Codable, Identifiable {
-  case happy, calm, focused, sad, energetic, nostalgic
-  public var id: String { rawValue }
+/// Primary mood inferred from the photo.
+enum Mood: String, Codable, CaseIterable {
+  case happy
+  case calm
+  case sad
+  case energetic
+  case anxious
+  case angry
+  case melancholic
+  case focused        // NEW
+  case nostalgic      // NEW
 }
+
