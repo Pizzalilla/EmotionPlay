@@ -4,7 +4,6 @@
 //
 
 import SwiftUI
-import UIKit
 
 struct ContentView: View {
   // Stores / state
@@ -44,7 +43,11 @@ struct ContentView: View {
       ProfileView(
         prefs: prefs,
         connectAction: { showAuthSheet = true },
-        disconnectAction: { /* optionally clear tokens, etc. */ },
+        disconnectAction: {
+          auth.disconnect()
+          homeVM.isAuthorized = false
+          prefs.spotifyUsername = nil
+        },
         clearHistoryAction: { history.clearAll() },
         isConnected: homeVM.isAuthorized
       )
@@ -52,34 +55,18 @@ struct ContentView: View {
       .tag(2)
     }
     .tint(Color.appTint)
-    .background(Color.appBackground.ignoresSafeArea())
+    .background(Color.green)
 
-    // Minimal presenter that hands a UIViewController to start ASWebAuthenticationSession
-    .sheet(isPresented: $showAuthSheet) {
-      AuthSheetForProfile { vc in
-        Task { await homeVM.connectSpotify(from: vc) }
+    // Handle Spotify auth - no need for sheet, just trigger directly
+    .onChange(of: showAuthSheet) { newValue in
+      if newValue {
+        Task {
+          await homeVM.connectSpotify(from: nil)
+          showAuthSheet = false
+        }
       }
     }
   }
 }
 
-// MARK: - Auth presenter used by Profile tab
-private struct AuthSheetForProfile: UIViewControllerRepresentable {
-  let connect: (UIViewController) -> Void
 
-  func makeUIViewController(context: Context) -> UIViewController { UIViewController() }
-
-  func updateUIViewController(_ uiViewController: UIViewController, context: Context) {
-    // Fire once when the sheet appears
-    if !context.coordinator.didStart {
-      context.coordinator.didStart = true
-      connect(uiViewController)
-    }
-  }
-
-  func makeCoordinator() -> Coordinator { Coordinator() }
-
-  final class Coordinator {
-    var didStart = false
-  }
-}

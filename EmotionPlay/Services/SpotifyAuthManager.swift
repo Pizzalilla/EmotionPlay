@@ -27,6 +27,18 @@ final class SpotifyAuthManager: NSObject, ObservableObject {
     return !token.isEmpty && exp > Date()
   }
 
+  /// Clears all stored tokens and resets authorization state
+  func disconnect() {
+    accessToken = nil
+    refreshToken = nil
+    expiresAt = nil
+    cachedUserID = nil
+    print("[SpotifyAuth] Disconnected - all tokens cleared")
+  }
+
+  // MARK: - User ID Cache
+  private(set) var cachedUserID: String? = nil
+
   // MARK: - Public
 
   /// Starts PKCE auth using ASWebAuthenticationSession

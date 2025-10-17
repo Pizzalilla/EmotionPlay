@@ -29,22 +29,9 @@
 		C75605D22E5C692D000B07DF /* EmotionPlayUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EmotionPlayUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
-/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		C7E6C88B2E93C75B0016BE6E /* Exceptions for "EmotionPlay" folder in "EmotionPlay" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				Info.plist,
-			);
-			target = C75605BA2E5C692C000B07DF /* EmotionPlay */;
-		};
-/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
-
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		C75605BD2E5C692C000B07DF /* EmotionPlay */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-				C7E6C88B2E93C75B0016BE6E /* Exceptions for "EmotionPlay" folder in "EmotionPlay" target */,
-			);
 			path = EmotionPlay;
 			sourceTree = "<group>";
 		};
@@ -410,9 +397,6 @@
 				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = EmotionPlay/Info.plist;
-				INFOPLIST_KEY_NSCameraUsageDescription = "We need camera access to analyze your photo mood.";
-				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "We need photo library access so you can upload your pictures.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -440,9 +424,6 @@
 				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = EmotionPlay/Info.plist;
-				INFOPLIST_KEY_NSCameraUsageDescription = "We need camera access to analyze your photo mood.";
-				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "We need photo library access so you can upload your pictures.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

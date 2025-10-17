@@ -1,14 +1,31 @@
 import Foundation
+import UIKit
 
 
 // MARK: - Client
-final class SpotifyAPIClient: Recommender {
+final class SpotifyAPIClient: MusicProviderClient, Recommender {
     private let auth: SpotifyAuthProviding
     private let base = URL(string: "https://api.spotify.com/v1")!
     private var cachedUserID: String?
 
     init(auth: SpotifyAuthProviding) {
         self.auth = auth
+    }
+
+    // MARK: MusicProviderClient
+
+    var isAuthorized: Bool {
+        (try? auth.validTokenOrThrow()) != nil
+    }
+
+    func authorize(from viewController: UIViewController) async throws {
+        // Delegate to the auth manager if it conforms to a protocol with authorize(from:)
+        // For now, we assume the SpotifyAuthManager handles this
+        // This is a bridge method - actual auth happens in SpotifyAuthManager
+        guard let authManager = auth as? SpotifyAuthManager else {
+            throw SpotifyError.notAuthenticated
+        }
+        try await authManager.authorize(from: viewController)
     }
 
     // MARK: Recommender
@@ -114,16 +131,18 @@ final class SpotifyAPIClient: Recommender {
         }
     }
 
-    // IMPORTANT: Match YOUR Mood enum. I removed `.romantic`.
+    // IMPORTANT: Match YOUR Mood enum.
     private func defaultGenres(for mood: Mood) -> [String] {
         switch mood {
-        case .happy:     return ["happy", "pop", "dance", "party", "summer"]
-        case .sad:       return ["sad", "acoustic", "piano", "singer-songwriter"]
-        case .calm:      return ["chill", "ambient", "sleep", "new-age", "focus"]
-        case .energetic: return ["work-out", "edm", "dance", "electro", "techno"]
-        case .angry:     return ["metal", "hard-rock", "punk", "rock"]
-        case .focused:   return ["focus", "instrumental", "lo-fi", "study"]
-        @unknown default: return ["pop"]
+        case .happy:       return ["happy", "pop", "dance", "party", "summer"]
+        case .sad:         return ["sad", "acoustic", "piano", "singer-songwriter"]
+        case .calm:        return ["chill", "ambient", "sleep", "new-age", "focus"]
+        case .energetic:   return ["work-out", "edm", "dance", "electro", "techno"]
+        case .angry:       return ["metal", "hard-rock", "punk", "rock"]
+        case .anxious:     return ["ambient", "classical", "meditation", "calm"]
+        case .melancholic: return ["blues", "indie", "alternative", "sad"]
+        case .focused:     return ["focus", "instrumental", "lo-fi", "study"]
+        case .nostalgic:   return ["indie", "folk", "acoustic", "singer-songwriter"]
         }
     }
 }

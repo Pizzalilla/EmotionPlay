@@ -1,0 +1,32 @@
+{
+  "source": "/Users/wongwilson/Downloads/EmotionPlay/EmotionPlay/Views/ContentView.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "Home",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 35
+        }
+      },
+      {
+        "comment": "",
+        "key": "History",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 40
+        }
+      },
+      {
+        "comment": "",
+        "key": "Profile",
+        "location": {
+          "startingColumn": 24,
+          "startingLine": 51
+        }
+      }
+    ]
+  },
+  "version": 1
+}
