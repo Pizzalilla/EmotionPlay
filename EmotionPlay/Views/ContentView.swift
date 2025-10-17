@@ -61,7 +61,7 @@ struct ContentView: View {
     .onChange(of: showAuthSheet) { newValue in
       if newValue {
         Task {
-          await homeVM.connectSpotify(from: nil)
+            await homeVM.connectSpotify(from: UIViewController.init() )
           showAuthSheet = false
         }
       }
