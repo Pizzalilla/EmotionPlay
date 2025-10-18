@@ -7,9 +7,16 @@
 
 import Foundation
 
-public struct Playlist: Identifiable, Hashable {
-  public let id: String
-  public let name: String
-  public let url: URL?
-  public let coverURL: URL?
+struct Playlist: Identifiable, Codable, Hashable {
+  let id: String
+  let name: String
+  let url: URL?
+  let coverURL: URL?   // optional artwork URL
+
+  init(id: String, name: String, url: URL?, coverURL: URL? = nil) {
+    self.id = id
+    self.name = name
+    self.url = url
+    self.coverURL = coverURL
+  }
 }

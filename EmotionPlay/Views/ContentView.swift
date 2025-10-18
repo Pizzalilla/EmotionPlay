@@ -2,34 +2,71 @@
 //  ContentView.swift
 //  EmotionPlay
 //
-//  Created by Kartikay Singh on 25/8/2025.
-//
 
 import SwiftUI
 
 struct ContentView: View {
-  @StateObject private var auth = SpotifyAuthManager()
-  @StateObject private var journal = JournalStore()
+  // Stores / state
+  @StateObject private var auth    = SpotifyAuthManager()
+  @StateObject private var history = HistoryStore()
+  @StateObject private var prefs   = UserPreferences()
+
+  // UI state
+  @State private var selectedTab   = 0
+  @State private var showAuthSheet = false
 
   var body: some View {
+    // Services
     let client = SpotifyAPIClient(auth: auth)
-    let vm = RecommendViewModel(musicClient: client, journal: journal)
+    let infer = RemoteMoodInferencer(apiKey: "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") // <- paste hf_... here
 
-    TabView {
-      RecommendView(vm: vm)
-        .tabItem { Label("Recommend", systemImage: "music.note.list") }
+    // VM (inject shared stores/services)
+    let homeVM = HomeViewModel(
+      inferencer: infer,
+      music: client,
+      prefs: prefs,
+      history: history
+    )
 
-      JournalView(store: journal)
-        .tabItem { Label("Journal", systemImage: "book") }
+    TabView(selection: $selectedTab) {
+      // HOME
+      HomeView(vm: homeVM, goToProfileConnect: { selectedTab = 2 })
+        .tabItem { Label("Home", systemImage: "house.fill") }
+        .tag(0)
 
-      SettingsView()
-        .tabItem { Label("Settings", systemImage: "gearshape") }
+      // HISTORY
+      HistoryView(store: history)
+        .tabItem { Label("History", systemImage: "clock.fill") }
+        .tag(1)
+
+      // PROFILE (Spotify connect only here)
+      ProfileView(
+        prefs: prefs,
+        connectAction: { showAuthSheet = true },
+        disconnectAction: {
+          auth.disconnect()
+          homeVM.isAuthorized = false
+          prefs.spotifyUsername = nil
+        },
+        clearHistoryAction: { history.clearAll() },
+        isConnected: homeVM.isAuthorized
+      )
+      .tabItem { Label("Profile", systemImage: "person.fill") }
+      .tag(2)
     }
-    .tint(.appTint)
-    .background(Color.appBackground.ignoresSafeArea())
+    .tint(Color.appTint)
+    .background(Color.green)
+
+    // Handle Spotify auth - no need for sheet, just trigger directly
+    .onChange(of: showAuthSheet) { newValue in
+      if newValue {
+        Task {
+            await homeVM.connectSpotify(from: UIViewController.init() )
+          showAuthSheet = false
+        }
+      }
+    }
   }
 }
 
-#Preview {
-    ContentView()
-}
+

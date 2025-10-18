@@ -7,10 +7,17 @@
 
 import Foundation
 
-public struct MoodEntry: Codable, Hashable, Identifiable {
-  public let id: UUID = .init()
-  public var date: Date
-  public var mood: Mood
-  public var song: Song
-  public var notes: String?
+struct MoodEntry: Identifiable, Codable {
+  var id = UUID()
+  var date: Date
+  var mood: Mood
+  var note: String?
+
+  init(id: UUID = UUID(), date: Date, mood: Mood, note: String? = nil) {
+    self.id = id
+    self.date = date
+    self.mood = mood
+    self.note = note
+  }
 }
+

@@ -1,0 +1,120 @@
+{
+  "source": "/Users/wongwilson/Downloads/EmotionPlay/EmotionPlay/Views/HomeView.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "Add Photo",
+        "location": {
+          "startingColumn": 27,
+          "startingLine": 54
+        }
+      },
+      {
+        "comment": "",
+        "key": "Take Photo",
+        "location": {
+          "startingColumn": 16,
+          "startingLine": 57
+        }
+      },
+      {
+        "comment": "",
+        "key": "Choose from Library",
+        "location": {
+          "startingColumn": 16,
+          "startingLine": 58
+        }
+      },
+      {
+        "comment": "",
+        "key": "Cancel",
+        "location": {
+          "startingColumn": 16,
+          "startingLine": 59
+        }
+      },
+      {
+        "comment": "",
+        "key": "EmotiPlay",
+        "location": {
+          "startingColumn": 18,
+          "startingLine": 115
+        }
+      },
+      {
+        "comment": "",
+        "key": "0",
+        "location": {
+          "startingColumn": 18,
+          "startingLine": 126
+        }
+      },
+      {
+        "comment": "",
+        "key": "Change Photo",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 170
+        }
+      },
+      {
+        "comment": "",
+        "key": "How are you feeling?",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 191
+        }
+      },
+      {
+        "comment": "",
+        "key": "Upload or take a photo to discover your mood",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 195
+        }
+      },
+      {
+        "comment": "",
+        "key": "Detected Mood",
+        "location": {
+          "startingColumn": 16,
+          "startingLine": 233
+        }
+      },
+      {
+        "comment": "",
+        "key": "✨ Playlist Created",
+        "location": {
+          "startingColumn": 24,
+          "startingLine": 332
+        }
+      },
+      {
+        "comment": "",
+        "key": "Open in Spotify",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 348
+        }
+      },
+      {
+        "comment": "",
+        "key": "Analyzing...",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 391
+        }
+      },
+      {
+        "comment": "",
+        "key": "Analyze Photo & Create Playlist",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 396
+        }
+      }
+    ]
+  },
+  "version": 1
+}
