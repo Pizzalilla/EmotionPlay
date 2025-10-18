@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		C7BEFD5F2EA3ED5900301FED /* EmotiPlayFinal.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = C7BEFD5E2EA3ED5900301FED /* EmotiPlayFinal.mlmodel */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		C75605C92E5C692D000B07DF /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -27,6 +31,7 @@
 		C75605BB2E5C692C000B07DF /* EmotionPlay.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EmotionPlay.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C75605C82E5C692D000B07DF /* EmotionPlayTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EmotionPlayTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C75605D22E5C692D000B07DF /* EmotionPlayUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EmotionPlayUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C7BEFD5E2EA3ED5900301FED /* EmotiPlayFinal.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = EmotiPlayFinal.mlmodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -75,6 +80,7 @@
 		C75605B22E5C692C000B07DF = {
 			isa = PBXGroup;
 			children = (
+				C7BEFD5E2EA3ED5900301FED /* EmotiPlayFinal.mlmodel */,
 				C75605BD2E5C692C000B07DF /* EmotionPlay */,
 				C75605CB2E5C692D000B07DF /* EmotionPlayTests */,
 				C75605D52E5C692D000B07DF /* EmotionPlayUITests */,
@@ -236,6 +242,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C7BEFD5F2EA3ED5900301FED /* EmotiPlayFinal.mlmodel in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
