@@ -1,0 +1,30 @@
+{
+  "/Users/wongwilson/Downloads/EmotionPlay/EmotionPlay/Utilities/DateFormatter+Playlist.swift" : {
+    "const-values" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphoneos/EmotionPlay.build/Objects-normal/arm64/DateFormatter+Playlist.swiftconstvalues",
+    "dependencies" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphoneos/EmotionPlay.build/Objects-normal/arm64/DateFormatter+Playlist.d",
+    "diagnostics" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphoneos/EmotionPlay.build/Objects-normal/arm64/DateFormatter+Playlist.dia",
+    "object" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphoneos/EmotionPlay.build/Objects-normal/arm64/DateFormatter+Playlist.o",
+    "swift-dependencies" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphoneos/EmotionPlay.build/Objects-normal/arm64/DateFormatter+Playlist.swiftdeps"
+  },
+  "/Users/wongwilson/Downloads/EmotionPlay/EmotionPlay/Utilities/FeatureMapping.swift" : {
+    "const-values" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphoneos/EmotionPlay.build/Objects-normal/arm64/FeatureMapping.swiftconstvalues",
+    "dependencies" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphoneos/EmotionPlay.build/Objects-normal/arm64/FeatureMapping.d",
+    "diagnostics" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphoneos/EmotionPlay.build/Objects-normal/arm64/FeatureMapping.dia",
+    "object" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphoneos/EmotionPlay.build/Objects-normal/arm64/FeatureMapping.o",
+    "swift-dependencies" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphoneos/EmotionPlay.build/Objects-normal/arm64/FeatureMapping.swiftdeps"
+  },
+  "/Users/wongwilson/Downloads/EmotionPlay/EmotionPlay/Utilities/Themes.swift" : {
+    "const-values" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphoneos/EmotionPlay.build/Objects-normal/arm64/Themes.swiftconstvalues",
+    "dependencies" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphoneos/EmotionPlay.build/Objects-normal/arm64/Themes.d",
+    "diagnostics" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphoneos/EmotionPlay.build/Objects-normal/arm64/Themes.dia",
+    "object" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphoneos/EmotionPlay.build/Objects-normal/arm64/Themes.o",
+    "swift-dependencies" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphoneos/EmotionPlay.build/Objects-normal/arm64/Themes.swiftdeps"
+  },
+  "/Users/wongwilson/Downloads/EmotionPlay/EmotionPlay/ViewModels/HomeViewModel.swift" : {
+    "const-values" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphoneos/EmotionPlay.build/Objects-normal/arm64/HomeViewModel.swiftconstvalues",
+    "dependencies" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphoneos/EmotionPlay.build/Objects-normal/arm64/HomeViewModel.d",
+    "diagnostics" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphoneos/EmotionPlay.build/Objects-normal/arm64/HomeViewModel.dia",
+    "object" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphoneos/EmotionPlay.build/Objects-normal/arm64/HomeViewModel.o",
+    "swift-dependencies" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphoneos/EmotionPlay.build/Objects-normal/arm64/HomeViewModel.swiftdeps"
+  }
+}

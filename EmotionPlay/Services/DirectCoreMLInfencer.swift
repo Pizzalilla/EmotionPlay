@@ -10,6 +10,10 @@ import CoreML
 import UIKit
 import CoreImage
 import VideoToolbox
+import OSLog
+
+// Create a logger for better debugging on device
+private let logger = Logger(subsystem: "com.emotionplay.inference", category: "CoreML")
 
 final class DirectCoreMLInferencer: MoodInferencer {
     
@@ -22,14 +26,14 @@ final class DirectCoreMLInferencer: MoodInferencer {
     // MARK: - Initialization
     
     init() throws {
-        print("🔍 Loading Core ML model...")
+        logger.info("🔍 Loading Core ML model...")
         
         let config = MLModelConfiguration()
         // Use .all for best performance on real devices (uses Neural Engine when available)
         config.computeUnits = .all
         
         guard let mlModel = try? EmotiPlayFinal(configuration: config) else {
-            print("❌ Failed to initialize EmotiPlayModel")
+            logger.error("❌ Failed to initialize EmotiPlayModel")
             throw CoreMLError.modelLoadFailed
         }
         self.model = mlModel
@@ -38,46 +42,76 @@ final class DirectCoreMLInferencer: MoodInferencer {
         let desc = mlModel.model.modelDescription
         guard let firstInput = desc.inputDescriptionsByName.first?.value,
               let constraint = firstInput.imageConstraint else {
+            logger.error("❌ Failed to get model input constraints")
             throw CoreMLError.modelLoadFailed
         }
         
         self.inputSize = CGSize(width: constraint.pixelsWide, height: constraint.pixelsHigh)
-        print("✅ Model loaded: \(Int(inputSize.width))x\(Int(inputSize.height))")
+        logger.info("✅ Model loaded: \(Int(self.inputSize.width))x\(Int(self.inputSize.height))")
     }
     
     // MARK: - MoodInferencer Protocol
     
     func infer(fromImageData data: Data) async throws -> (Mood, Double) {
-        guard let uiImage = UIImage(data: data), let cgImage = uiImage.cgImage else {
+        logger.info("🖼️ Starting inference with image data of size: \(data.count) bytes")
+        
+        guard let uiImage = UIImage(data: data) else {
+            logger.error("❌ Failed to create UIImage from data")
             throw CoreMLError.invalidImageData
         }
+        logger.info("✅ UIImage created: \(uiImage.size.width)x\(uiImage.size.height)")
+        
+        guard let cgImage = uiImage.cgImage else {
+            logger.error("❌ Failed to get CGImage from UIImage")
+            throw CoreMLError.invalidImageData
+        }
+        logger.info("✅ CGImage obtained")
         
         // Create pixel buffer with center crop (matches Xcode preview)
         guard let pixelBuffer = Self.makePixelBuffer(from: cgImage, targetSize: inputSize) else {
+            logger.error("❌ Failed to create pixel buffer")
             throw CoreMLError.imageConversionFailed
         }
+        logger.info("✅ Pixel buffer created")
         
         return try await withCheckedThrowingContinuation { continuation in
-            inferenceQueue.async {
+            inferenceQueue.async { [weak self] in
+                guard let self = self else {
+                    logger.error("❌ Self was deallocated during inference")
+                    continuation.resume(throwing: CoreMLError.modelLoadFailed)
+                    return
+                }
+                
                 do {
+                    logger.info("🔮 Running model prediction...")
                     let prediction = try self.model.prediction(image: pixelBuffer)
+                    logger.info("✅ Prediction completed")
                     
                     let predictedLabel = prediction.target
                     let probabilities = prediction.targetProbability
                     let confidence = probabilities[predictedLabel] ?? 0.0
                     
-                    print("📊 Predictions:")
-                    for (label, prob) in probabilities.sorted(by: { $0.value > $1.value }) {
-                        print("  \(label): \(Int(prob * 100))%")
+                    logger.info("📊 Predictions:")
+                    let sortedProbs = probabilities.sorted(by: { $0.value > $1.value })
+                    for (label, prob) in sortedProbs {
+                        logger.info("  \(label): \(Int(prob * 100))%")
                     }
                     
                     let mood = self.mapClassificationToMood(predictedLabel)
-                    print("✅ \(predictedLabel) → \(mood.rawValue) (\(Int(confidence * 100))%)")
+                    logger.info("✅ Final: \(predictedLabel) → \(mood.rawValue) (\(Int(confidence * 100))%)")
+                    
+                    // Also print to console for backward compatibility
+                    print("📊 DirectCoreML Predictions:")
+                    for (label, prob) in sortedProbs {
+                        print("  \(label): \(Int(prob * 100))%")
+                    }
+                    print("✅ Result: \(predictedLabel) → \(mood.rawValue) (\(Int(confidence * 100))%)")
                     
                     continuation.resume(returning: (mood, confidence))
                     
                 } catch {
-                    print("❌ Prediction error: \(error.localizedDescription)")
+                    logger.error("❌ Prediction error: \(error.localizedDescription)")
+                    print("❌ DirectCoreML Prediction error: \(error.localizedDescription)")
                     continuation.resume(throwing: error)
                 }
             }
@@ -88,6 +122,8 @@ final class DirectCoreMLInferencer: MoodInferencer {
     
     private func mapClassificationToMood(_ label: String) -> Mood {
         let lowercased = label.lowercased()
+        logger.info("🔄 Mapping '\(label)' to mood...")
+        
         switch lowercased {
         case "happy":
             return .happy
@@ -97,8 +133,14 @@ final class DirectCoreMLInferencer: MoodInferencer {
             return .angry
         case "surprised":
             return .energetic
+        case "fear", "fearful":
+            return .anxious
+        case "disgust":
+            return .angry
+        case "neutral":
+            return .calm
         default:
-            print("⚠️ Unexpected label: '\(label)', defaulting to calm")
+            logger.warning("⚠️ Unexpected label: '\(label)', defaulting to calm")
             return .calm
         }
     }
@@ -110,6 +152,8 @@ final class DirectCoreMLInferencer: MoodInferencer {
         let width = Int(targetSize.width)
         let height = Int(targetSize.height)
         
+        logger.info("🎨 Creating pixel buffer: \(width)x\(height)")
+        
         var pixelBuffer: CVPixelBuffer?
         let attrs: [CFString: Any] = [
             kCVPixelBufferCGImageCompatibilityKey: true,
@@ -117,13 +161,17 @@ final class DirectCoreMLInferencer: MoodInferencer {
             kCVPixelBufferMetalCompatibilityKey: true
         ]
         
-        guard CVPixelBufferCreate(kCFAllocatorDefault,
-                                  width,
-                                  height,
-                                  kCVPixelFormatType_32BGRA,
-                                  attrs as CFDictionary,
-                                  &pixelBuffer) == kCVReturnSuccess,
-              let pb = pixelBuffer else {
+        let status = CVPixelBufferCreate(
+            kCFAllocatorDefault,
+            width,
+            height,
+            kCVPixelFormatType_32BGRA,
+            attrs as CFDictionary,
+            &pixelBuffer
+        )
+        
+        guard status == kCVReturnSuccess, let pb = pixelBuffer else {
+            logger.error("❌ CVPixelBufferCreate failed with status: \(status)")
             return nil
         }
         
@@ -139,6 +187,7 @@ final class DirectCoreMLInferencer: MoodInferencer {
             space: CGColorSpaceCreateDeviceRGB(),
             bitmapInfo: CGImageAlphaInfo.noneSkipFirst.rawValue | CGBitmapInfo.byteOrder32Little.rawValue
         ) else {
+            logger.error("❌ Failed to create CGContext")
             return nil
         }
         
@@ -154,9 +203,12 @@ final class DirectCoreMLInferencer: MoodInferencer {
         let x = (targetW - scaledW) / 2.0
         let y = (targetH - scaledH) / 2.0
         
+        logger.info("📐 Image transform - scale: \(String(format: "%.2f", scale)), offset: (\(String(format: "%.1f", x)), \(String(format: "%.1f", y)))")
+        
         context.interpolationQuality = .high
         context.draw(cgImage, in: CGRect(x: x, y: y, width: scaledW, height: scaledH))
         
+        logger.info("✅ Pixel buffer created successfully")
         return pb
     }
 }

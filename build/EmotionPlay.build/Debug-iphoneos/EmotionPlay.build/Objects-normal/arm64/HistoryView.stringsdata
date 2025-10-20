@@ -1,0 +1,64 @@
+{
+  "source": "/Users/wongwilson/Downloads/EmotionPlay/EmotionPlay/Views/HistoryView.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "Your History",
+        "location": {
+          "startingColumn": 24,
+          "startingLine": 33
+        }
+      },
+      {
+        "comment": "",
+        "key": "Rename",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 23
+        }
+      },
+      {
+        "comment": "",
+        "key": "Rename",
+        "location": {
+          "startingColumn": 24,
+          "startingLine": 111
+        }
+      },
+      {
+        "comment": "",
+        "key": "Session Title",
+        "location": {
+          "startingColumn": 17,
+          "startingLine": 107
+        }
+      },
+      {
+        "comment": "",
+        "key": "e.g. Morning Boost, Exam Stress Mix",
+        "location": {
+          "startingColumn": 21,
+          "startingLine": 108
+        }
+      },
+      {
+        "comment": "",
+        "key": "Cancel",
+        "location": {
+          "startingColumn": 18,
+          "startingLine": 114
+        }
+      },
+      {
+        "comment": "",
+        "key": "Save",
+        "location": {
+          "startingColumn": 18,
+          "startingLine": 117
+        }
+      }
+    ]
+  },
+  "version": 1
+}
