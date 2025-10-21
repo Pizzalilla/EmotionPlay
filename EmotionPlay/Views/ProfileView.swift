@@ -2,7 +2,7 @@
 //  ProfileView.swift
 //  EmotionPlay
 //
-//  Created by Kartikay Singh on 4/10/2025.
+//  Updated with consistent background styling
 //
 
 import SwiftUI
@@ -15,41 +15,124 @@ struct ProfileView: View {
   let isConnected: Bool
 
   private let allGenres = ["pop","hip-hop","rock","edm","lo-fi","jazz","indie","r&b"]
-  private let columns = [GridItem(.adaptive(minimum: 110), spacing: 10)]
+  private let columns = [GridItem(.adaptive(minimum: 110), spacing: 12)]
 
   var body: some View {
     NavigationStack {
-      ScrollView {
-        VStack(alignment: .leading, spacing: 24) {
-          SectionHeader(title: "Spotify Connection")
+      ZStack {
+        // Consistent background
+        Color.AppBackground.ignoresSafeArea()
+        
+        ScrollView {
+          VStack(alignment: .leading, spacing: 32) {
+            // Profile Header
+            VStack(spacing: 16) {
+              // Profile icon
+              ZStack {
+                Circle()
+                  .fill(
+                    LinearGradient(
+                      colors: [Color.AppGreenAccent, Color.AppGreen3],
+                      startPoint: .topLeading,
+                      endPoint: .bottomTrailing
+                    )
+                  )
+                  .frame(width: 80, height: 80)
+                
+                Image(systemName: "person.fill")
+                  .font(.system(size: 36, weight: .bold))
+                  .foregroundColor(.white)
+              }
+              .shadow(color: Color.AppGreenAccent.opacity(0.3), radius: 15, x: 0, y: 8)
+              
+              Text("Your Profile")
+                .font(.title2.bold())
+                .foregroundColor(.white)
+            }
+            .frame(maxWidth: .infinity)
+            .padding(.top, 20)
+            
+            // Spotify Connection
+            VStack(alignment: .leading, spacing: 16) {
+              SectionHeader(title: "Spotify Connection")
+              ConnectionCard(
+                isConnected: isConnected,
+                username: prefs.spotifyUsername,
+                connect: connectAction,
+                disconnect: disconnectAction
+              )
+            }
 
-          ConnectionCard(isConnected: isConnected,
-                         username: prefs.spotifyUsername,
-                         connect: connectAction,
-                         disconnect: disconnectAction)
-
-          SectionHeader(title: "Preferred Genres")
-
-          LazyVGrid(columns: columns, spacing: 10) {
-            ForEach(allGenres, id: \.self) { tag in
-              GenreChip(tag: tag, isOn: prefs.preferredGenres.contains(tag)) {
-                if prefs.preferredGenres.contains(tag) {
-                  prefs.preferredGenres.remove(tag)
-                } else {
-                  prefs.preferredGenres.insert(tag)
+            // Preferred Genres
+            VStack(alignment: .leading, spacing: 16) {
+              SectionHeader(title: "Preferred Genres")
+              
+              Text("Select genres you love for personalized playlists")
+                .font(.subheadline)
+                .foregroundColor(.gray)
+              
+              LazyVGrid(columns: columns, spacing: 12) {
+                ForEach(allGenres, id: \.self) { tag in
+                  GenreChip(tag: tag, isOn: prefs.preferredGenres.contains(tag)) {
+                    if prefs.preferredGenres.contains(tag) {
+                      prefs.preferredGenres.remove(tag)
+                    } else {
+                      prefs.preferredGenres.insert(tag)
+                    }
+                  }
                 }
               }
             }
-          }
 
-          SectionHeader(title: "Settings")
-          Button("Clear All History", role: .destructive, action: clearHistoryAction)
+            // Settings
+            VStack(alignment: .leading, spacing: 16) {
+              SectionHeader(title: "Settings")
+              
+              Button(action: clearHistoryAction) {
+                HStack {
+                  Image(systemName: "trash")
+                    .font(.title3)
+                  
+                  VStack(alignment: .leading, spacing: 4) {
+                    Text("Clear All History")
+                      .font(.headline)
+                    Text("Remove all saved playlists")
+                      .font(.caption)
+                      .foregroundColor(.gray)
+                  }
+                  
+                  Spacer()
+                  
+                  Image(systemName: "chevron.right")
+                    .font(.caption)
+                    .foregroundColor(.gray)
+                }
+                .foregroundColor(.red)
+                .padding()
+                .background(Color.cardBackground)
+                .cornerRadius(16)
+              }
+            }
+            
+            // App Info
+            VStack(spacing: 8) {
+              Text("EmotionPlay")
+                .font(.caption)
+                .foregroundColor(.gray)
+              
+              Text("Version 1.0.0")
+                .font(.caption2)
+                .foregroundColor(.gray.opacity(0.6))
+            }
+            .frame(maxWidth: .infinity)
+            .padding(.top, 20)
+            .padding(.bottom, 40)
+          }
+          .padding()
         }
-        .padding()
       }
-      .background(Color.appBackground.ignoresSafeArea())
-      .foregroundStyle(.white)
       .navigationTitle("Profile")
+      .navigationBarTitleDisplayMode(.inline)
     }
   }
 }
@@ -58,8 +141,8 @@ private struct SectionHeader: View {
   let title: String
   var body: some View {
     Text(title)
-      .font(.title).bold()
-      .foregroundStyle(Color.appGreenAccent)
+      .font(.title3.bold())
+      .foregroundColor(.white)
   }
 }
 
@@ -70,25 +153,78 @@ private struct ConnectionCard: View {
   let disconnect: () -> Void
 
   var body: some View {
-    VStack(spacing: 12) {
-      HStack {
-        Image(systemName: isConnected ? "checkmark.circle.fill" : "xmark.circle")
-          .foregroundStyle(isConnected ? .green : .red)
-        Text(isConnected ? "Connected\(username != nil ? " as @\(username!)" : "")" : "Not Connected")
+    VStack(spacing: 16) {
+      // Status
+      HStack(spacing: 12) {
+        ZStack {
+          Circle()
+            .fill(isConnected ? Color.green.opacity(0.2) : Color.red.opacity(0.2))
+            .frame(width: 40, height: 40)
+          
+          Image(systemName: isConnected ? "checkmark.circle.fill" : "xmark.circle.fill")
+            .font(.title3)
+            .foregroundColor(isConnected ? .green : .red)
+        }
+        
+        VStack(alignment: .leading, spacing: 4) {
+          Text(isConnected ? "Connected" : "Not Connected")
+            .font(.headline)
+            .foregroundColor(.white)
+          
+          if let username = username {
+            Text("@\(username)")
+              .font(.subheadline)
+              .foregroundColor(.gray)
+          } else {
+            Text(isConnected ? "Spotify account linked" : "Connect to create playlists")
+              .font(.subheadline)
+              .foregroundColor(.gray)
+          }
+        }
+        
         Spacer()
       }
-      HStack {
-        if isConnected {
-          Button("Disconnect", action: disconnect)
-            .buttonStyle(.borderedProminent).tint(.pink)
-        } else {
-          Button("Connect Spotify", action: connect)
-            .buttonStyle(.borderedProminent).tint(Color.appGreen3)
+      
+      // Action button
+      if isConnected {
+        Button(action: disconnect) {
+          HStack {
+            Image(systemName: "link.slash")
+            Text("Disconnect")
+              .font(.system(size: 16, weight: .semibold))
+          }
+          .foregroundColor(.white)
+          .frame(maxWidth: .infinity)
+          .padding(.vertical, 12)
+          .background(Color.red.opacity(0.8))
+          .cornerRadius(12)
+        }
+      } else {
+        Button(action: connect) {
+          HStack {
+            Image(systemName: "link")
+            Text("Connect Spotify")
+              .font(.system(size: 16, weight: .semibold))
+          }
+          .foregroundColor(.white)
+          .frame(maxWidth: .infinity)
+          .padding(.vertical, 12)
+          .background(
+            LinearGradient(
+              colors: [Color.AppGreenAccent, Color.AppGreen3],
+              startPoint: .leading,
+              endPoint: .trailing
+            )
+          )
+          .cornerRadius(12)
+          .shadow(color: Color.AppGreenAccent.opacity(0.3), radius: 10, x: 0, y: 5)
         }
       }
     }
-    .padding()
-    .background(RoundedRectangle(cornerRadius: 16).fill(Color.appSurfaceDark))
+    .padding(20)
+    .background(Color.cardBackground)
+    .cornerRadius(20)
+    .shadow(color: .black.opacity(0.3), radius: 15, x: 0, y: 8)
   }
 }
 
@@ -98,17 +234,21 @@ private struct GenreChip: View {
   let toggle: () -> Void
 
   var body: some View {
-    Text(tag.capitalized)
-      .frame(maxWidth: .infinity)
-      .padding(.vertical, 10)
-      .background(
-        RoundedRectangle(cornerRadius: 18)
-          .fill(isOn ? Color.appGreen2.opacity(0.35) : Color.appSurfaceDark)
-      )
-      .overlay(
-        RoundedRectangle(cornerRadius: 18)
-          .stroke(isOn ? Color.appGreenAccent : .gray.opacity(0.4))
-      )
-      .onTapGesture(perform: toggle)
+    Button(action: toggle) {
+      Text(tag.capitalized)
+        .font(.system(size: 14, weight: .medium))
+        .foregroundColor(isOn ? .white : .gray)
+        .frame(maxWidth: .infinity)
+        .padding(.vertical, 12)
+        .background(
+          RoundedRectangle(cornerRadius: 14, style: .continuous)
+            .fill(isOn ? Color.AppGreenAccent.opacity(0.3) : Color.cardBackground)
+        )
+        .overlay(
+          RoundedRectangle(cornerRadius: 14, style: .continuous)
+            .stroke(isOn ? Color.AppGreenAccent : Color.gray.opacity(0.3), lineWidth: 1.5)
+        )
+    }
+    .buttonStyle(.plain)
   }
 }

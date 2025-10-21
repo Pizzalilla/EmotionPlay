@@ -4,9 +4,25 @@
     "Localizable": [
       {
         "comment": "",
-        "key": "Your History",
+        "key": "Your Playlists",
         "location": {
           "startingColumn": 24,
+          "startingLine": 58
+        }
+      },
+      {
+        "comment": "",
+        "key": "No Playlists Yet",
+        "location": {
+          "startingColumn": 18,
+          "startingLine": 29
+        }
+      },
+      {
+        "comment": "",
+        "key": "Create your first mood-based playlist on the Home tab",
+        "location": {
+          "startingColumn": 18,
           "startingLine": 33
         }
       },
@@ -14,8 +30,16 @@
         "comment": "",
         "key": "Rename",
         "location": {
-          "startingColumn": 22,
-          "startingLine": 23
+          "startingColumn": 26,
+          "startingLine": 46
+        }
+      },
+      {
+        "comment": "",
+        "key": "%lld%%",
+        "location": {
+          "startingColumn": 18,
+          "startingLine": 131
         }
       },
       {
@@ -23,23 +47,23 @@
         "key": "Rename",
         "location": {
           "startingColumn": 24,
-          "startingLine": 111
-        }
-      },
-      {
-        "comment": "",
-        "key": "Session Title",
-        "location": {
-          "startingColumn": 17,
-          "startingLine": 107
+          "startingLine": 203
         }
       },
       {
         "comment": "",
         "key": "e.g. Morning Boost, Exam Stress Mix",
         "location": {
-          "startingColumn": 21,
-          "startingLine": 108
+          "startingColumn": 23,
+          "startingLine": 192
+        }
+      },
+      {
+        "comment": "",
+        "key": "Session Title",
+        "location": {
+          "startingColumn": 18,
+          "startingLine": 196
         }
       },
       {
@@ -47,7 +71,7 @@
         "key": "Cancel",
         "location": {
           "startingColumn": 18,
-          "startingLine": 114
+          "startingLine": 207
         }
       },
       {
@@ -55,7 +79,7 @@
         "key": "Save",
         "location": {
           "startingColumn": 18,
-          "startingLine": 117
+          "startingLine": 214
         }
       }
     ]

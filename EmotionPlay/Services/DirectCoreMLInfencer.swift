@@ -47,32 +47,32 @@ final class DirectCoreMLInferencer: MoodInferencer {
         }
         
         self.inputSize = CGSize(width: constraint.pixelsWide, height: constraint.pixelsHigh)
-        logger.info("✅ Model loaded: \(Int(self.inputSize.width))x\(Int(self.inputSize.height))")
+        logger.info("Model loaded: \(Int(self.inputSize.width))x\(Int(self.inputSize.height))")
     }
     
     // MARK: - MoodInferencer Protocol
     
     func infer(fromImageData data: Data) async throws -> (Mood, Double) {
-        logger.info("🖼️ Starting inference with image data of size: \(data.count) bytes")
+        logger.info(" Starting inference with image data of size: \(data.count) bytes")
         
         guard let uiImage = UIImage(data: data) else {
-            logger.error("❌ Failed to create UIImage from data")
+            logger.error(" Failed to create UIImage from data")
             throw CoreMLError.invalidImageData
         }
-        logger.info("✅ UIImage created: \(uiImage.size.width)x\(uiImage.size.height)")
+        logger.info(" UIImage created: \(uiImage.size.width)x\(uiImage.size.height)")
         
         guard let cgImage = uiImage.cgImage else {
-            logger.error("❌ Failed to get CGImage from UIImage")
+            logger.error(" Failed to get CGImage from UIImage")
             throw CoreMLError.invalidImageData
         }
-        logger.info("✅ CGImage obtained")
+        logger.info(" CGImage obtained")
         
         // Create pixel buffer with center crop (matches Xcode preview)
         guard let pixelBuffer = Self.makePixelBuffer(from: cgImage, targetSize: inputSize) else {
-            logger.error("❌ Failed to create pixel buffer")
+            logger.error(" Failed to create pixel buffer")
             throw CoreMLError.imageConversionFailed
         }
-        logger.info("✅ Pixel buffer created")
+        logger.info(" Pixel buffer created")
         
         return try await withCheckedThrowingContinuation { continuation in
             inferenceQueue.async { [weak self] in

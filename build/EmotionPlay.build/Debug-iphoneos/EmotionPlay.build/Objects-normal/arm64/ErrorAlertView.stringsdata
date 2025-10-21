@@ -1,0 +1,32 @@
+{
+  "source": "/Users/wongwilson/Downloads/EmotionPlay/EmotionPlay/Views/ErrorAlertView.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "Try this:",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 48
+        }
+      },
+      {
+        "comment": "",
+        "key": "Try Another Photo",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 84
+        }
+      },
+      {
+        "comment": "",
+        "key": "Cancel",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 101
+        }
+      }
+    ]
+  },
+  "version": 1
+}

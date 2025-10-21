@@ -2,8 +2,7 @@
 //  HomeView.swift
 //  EmotionPlay
 //
-//  Created by Kartikay Singh on 4/10/2025.
-//  Updated with CalAI-inspired dark aesthetic
+//  Updated: Full screen sheets, direct redirect after analysis
 //
 
 import SwiftUI
@@ -13,8 +12,8 @@ import UIKit
 struct HomeView: View {
   @ObservedObject var vm: HomeViewModel
   var goToProfileConnect: () -> Void
+  var onPlaylistCreated: () -> Void
 
-  @State private var showSourceSheet = false
   @State private var showPhotoPicker = false
   @State private var showCamera = false
   @State private var selectedItem: PhotosPickerItem? = nil
@@ -23,64 +22,218 @@ struct HomeView: View {
     NavigationStack {
       ScrollView {
         VStack(spacing: 24) {
-          // Header with enhanced styling
+          // Header
           ModernHeader()
           
-          // Enhanced upload card with glassmorphic design
+          // Upload card - now opens sheet menu
           EnhancedUploadCard(
-            tap: { showSourceSheet = true },
+            tap: { showPhotoPicker = true },  // Changed to open picker directly
             imageData: vm.pickedImageData
           )
           
-          // Mood stats if detected
-          if let mood = vm.detectedMood {
-            MoodStatsSection(mood: mood, confidence: vm.confidence)
-          }
-          
-          // Result section with modern buttons
+          // Result section
           ModernResultSection(
             vm: vm,
             connectTapped: { goToProfileConnect() },
-            analyzeTapped: { Task { await vm.analyzeAndCreate() } }
+            analyzeTapped: { 
+              Task { 
+                await vm.analyzeAndCreate()
+                // ✨ Redirect immediately after analysis completes successfully
+                if vm.createdPlaylist != nil {
+                  DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                    onPlaylistCreated()
+                  }
+                }
+              } 
+            }
           )
           
           Spacer(minLength: 40)
         }
         .padding()
       }
-      .background(Color.appBackground.ignoresSafeArea())
+      .background(Color.AppBackground.ignoresSafeArea())
       
-      // Choose camera vs. library
-      .confirmationDialog("Add Photo",
-                          isPresented: $showSourceSheet,
-                          titleVisibility: .visible) {
-        Button("Take Photo") { showCamera = true }
-        Button("Choose from Library") { showPhotoPicker = true }
-        Button("Cancel", role: .cancel) { }
+      // ✨ Photo picker as SHEET
+      .sheet(isPresented: $showPhotoPicker) {
+        PhotoPickerSheet(
+          onImageSelected: { data in
+            vm.pickedImageData = data
+            vm.detectedMood = nil
+            vm.createdPlaylist = nil
+            vm.errorMessage = nil
+            vm.detectionError = nil
+            vm.showResultSheet = false
+          },
+          onCameraTapped: {
+            showPhotoPicker = false
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+              showCamera = true
+            }
+          }
+        )
+        .presentationDetents([.medium])
       }
       
-      // Photo Library picker
-      .photosPicker(isPresented: $showPhotoPicker,
-                    selection: $selectedItem,
-                    matching: .images)
-      .onChange(of: selectedItem) { newValue in
-        Task {
-          guard let newValue,
-                let data = try? await newValue.loadTransferable(type: Data.self) else { return }
-          vm.pickedImageData = data
-          vm.detectedMood = nil
-          vm.createdPlaylist = nil
-        }
-      }
-      
-      // Camera
+      // Camera as sheet
       .sheet(isPresented: $showCamera) {
         CameraPicker { image in
           if let data = image.jpegData(compressionQuality: 0.9) {
             vm.pickedImageData = data
             vm.detectedMood = nil
             vm.createdPlaylist = nil
+            vm.errorMessage = nil
+            vm.detectionError = nil
+            vm.showResultSheet = false
           }
+        }
+        .ignoresSafeArea()
+      }
+      
+      // ✨ Error alert - FULL SCREEN, dismissible
+      .sheet(item: $vm.detectionError) { error in
+        ErrorAlertView(
+          error: error,
+          onRetry: {
+            vm.resetForRetake()
+            showPhotoPicker = true
+          },
+          onDismiss: {
+            vm.detectionError = nil
+          }
+        )
+        .presentationDetents([.large])  // Full screen
+        .interactiveDismissDisabled(false)  // Can pull down to dismiss
+      }
+    }
+  }
+}
+
+// MARK: - Photo Picker Sheet
+
+struct PhotoPickerSheet: View {
+  let onImageSelected: (Data) -> Void
+  let onCameraTapped: () -> Void
+  
+  @Environment(\.dismiss) private var dismiss
+  @State private var selectedItem: PhotosPickerItem?
+  
+  var body: some View {
+    NavigationStack {
+      ZStack {
+        Color.AppBackground.ignoresSafeArea()
+        
+        VStack(spacing: 24) {
+          // Header
+          VStack(spacing: 8) {
+            Image(systemName: "photo.on.rectangle.angled")
+              .font(.system(size: 50))
+              .foregroundColor(.AppGreenAccent)
+            
+            Text("Add Photo")
+              .font(.title2.bold())
+              .foregroundColor(.white)
+            
+            Text("Choose how you'd like to add a photo")
+              .font(.subheadline)
+              .foregroundColor(.gray)
+          }
+          .padding(.top, 40)
+          
+          Spacer()
+          
+          // Options
+          VStack(spacing: 16) {
+            // Camera button
+            Button(action: {
+              dismiss()
+              onCameraTapped()
+            }) {
+              HStack(spacing: 16) {
+                ZStack {
+                  Circle()
+                    .fill(Color.cardBackground)
+                    .frame(width: 50, height: 50)
+                  
+                  Image(systemName: "camera.fill")
+                    .font(.title3)
+                    .foregroundColor(.white)
+                }
+                
+                VStack(alignment: .leading, spacing: 4) {
+                  Text("Take Photo")
+                    .font(.headline)
+                    .foregroundColor(.white)
+                  
+                  Text("Use your camera")
+                    .font(.subheadline)
+                    .foregroundColor(.gray)
+                }
+                
+                Spacer()
+                
+                Image(systemName: "chevron.right")
+                  .foregroundColor(.gray)
+              }
+              .padding(20)
+              .background(Color.cardBackground)
+              .cornerRadius(20)
+            }
+            .buttonStyle(.plain)
+            
+            // Photo library button
+            PhotosPicker(selection: $selectedItem, matching: .images) {
+              HStack(spacing: 16) {
+                ZStack {
+                  Circle()
+                    .fill(Color.cardBackground)
+                    .frame(width: 50, height: 50)
+                  
+                  Image(systemName: "photo.on.rectangle")
+                    .font(.title3)
+                    .foregroundColor(.white)
+                }
+                
+                VStack(alignment: .leading, spacing: 4) {
+                  Text("Choose from Library")
+                    .font(.headline)
+                    .foregroundColor(.white)
+                  
+                  Text("Pick an existing photo")
+                    .font(.subheadline)
+                    .foregroundColor(.gray)
+                }
+                
+                Spacer()
+                
+                Image(systemName: "chevron.right")
+                  .foregroundColor(.gray)
+              }
+              .padding(20)
+              .background(Color.cardBackground)
+              .cornerRadius(20)
+            }
+            .buttonStyle(.plain)
+            .onChange(of: selectedItem) { newValue in
+              Task {
+                guard let newValue,
+                      let data = try? await newValue.loadTransferable(type: Data.self) else { return }
+                onImageSelected(data)
+                dismiss()
+              }
+            }
+          }
+          .padding(.horizontal)
+          
+          Spacer()
+        }
+      }
+      .toolbar {
+        ToolbarItem(placement: .navigationBarTrailing) {
+          Button("Cancel") {
+            dismiss()
+          }
+          .foregroundColor(.gray)
         }
       }
     }
@@ -95,11 +248,10 @@ extension HomeView {
       VStack(spacing: 12) {
         HStack {
           HStack(spacing: 12) {
-            // App icon
             RoundedRectangle(cornerRadius: 14)
               .fill(
                 LinearGradient(
-                  colors: [Color.appGreenAccent, Color.appGreen3],
+                  colors: [Color.AppGreenAccent, Color.AppGreen3],
                   startPoint: .topLeading,
                   endPoint: .bottomTrailing
                 )
@@ -110,27 +262,14 @@ extension HomeView {
                   .font(.system(size: 22, weight: .bold))
                   .foregroundColor(.white)
               )
-              .shadow(color: Color.appGreenAccent.opacity(0.5), radius: 10, x: 0, y: 5)
+              .shadow(color: Color.AppGreenAccent.opacity(0.5), radius: 10, x: 0, y: 5)
             
-            Text("EmotiPlay")
+            Text("EmotionPlay")
               .font(.system(size: 28, weight: .bold, design: .rounded))
               .foregroundColor(.white)
           }
           
           Spacer()
-          
-          // Streak indicator
-          HStack(spacing: 8) {
-            Image(systemName: "flame.fill")
-              .foregroundColor(.orange)
-            Text("0")
-              .font(.system(size: 16, weight: .semibold))
-              .foregroundColor(.white)
-          }
-          .padding(.horizontal, 16)
-          .padding(.vertical, 10)
-          .background(Color.cardBackground)
-          .cornerRadius(20)
         }
         .padding(.top, 8)
       }
@@ -145,7 +284,7 @@ extension HomeView {
       Button(action: tap) {
         ZStack {
           if let imageData, let ui = UIImage(data: imageData) {
-            // Image preview with overlay
+            // Image preview
             Image(uiImage: ui)
               .resizable()
               .scaledToFill()
@@ -175,7 +314,7 @@ extension HomeView {
               .padding(.bottom, 30)
             }
           } else {
-            // Empty state with dashed border
+            // Empty state
             VStack(spacing: 20) {
               ZStack {
                 Circle()
@@ -202,7 +341,7 @@ extension HomeView {
             .frame(maxWidth: .infinity)
             .background(
               LinearGradient(
-                colors: [Color.cardBackground, Color.appBackground],
+                colors: [Color.cardBackground, Color.AppBackground],
                 startPoint: .top,
                 endPoint: .bottom
               )
@@ -213,106 +352,13 @@ extension HomeView {
         .overlay(
           RoundedRectangle(cornerRadius: 28, style: .continuous)
             .stroke(
-              imageData == nil ? Color.gray.opacity(0.3) : Color.appGreenAccent,
+              imageData == nil ? Color.gray.opacity(0.3) : Color.AppGreenAccent,
               style: StrokeStyle(lineWidth: 2, dash: imageData == nil ? [8, 8] : [])
             )
         )
         .shadow(color: .black.opacity(0.4), radius: 20, x: 0, y: 10)
       }
       .buttonStyle(.plain)
-    }
-  }
-  
-  fileprivate struct MoodStatsSection: View {
-    let mood: Mood
-    let confidence: Double
-    
-    var body: some View {
-      ModernCard {
-        VStack(spacing: 20) {
-          Text("Detected Mood")
-            .font(.headline)
-            .foregroundColor(.white)
-            .frame(maxWidth: .infinity, alignment: .leading)
-          
-          HStack(spacing: 12) {
-            StatsCircle(
-              icon: moodEmoji(mood),
-              value: mood.rawValue.capitalized,
-              label: "Primary",
-              gradient: moodGradient(mood)
-            )
-            
-            StatsCircle(
-              icon: "📊",
-              value: "\(Int(confidence * 100))%",
-              label: "Confidence",
-              gradient: confidenceGradient(confidence)
-            )
-            
-            StatsCircle(
-              icon: "🎵",
-              value: "Ready",
-              label: "Playlist",
-              gradient: LinearGradient(
-                colors: [Color.appGreenAccent, Color.appGreen3],
-                startPoint: .topLeading,
-                endPoint: .bottomTrailing
-              )
-            )
-          }
-        }
-      }
-    }
-    
-    private func moodEmoji(_ mood: Mood) -> String {
-      switch mood {
-      case .happy: return "😊"
-      case .sad: return "😢"
-      case .calm: return "😌"
-      case .energetic: return "⚡"
-      case .angry: return "😠"
-      case .anxious: return "😰"
-      case .melancholic: return "😔"
-      case .focused: return "🎯"
-      case .nostalgic: return "🌅"
-      }
-    }
-    
-    private func moodGradient(_ mood: Mood) -> LinearGradient {
-      switch mood {
-      case .happy: return Color.moodHappy
-      case .sad: return Color.moodSad
-      case .calm: return Color.moodCalm
-      case .energetic: return Color.moodEnergetic
-      default: return LinearGradient(
-        colors: [Color.gray, Color.gray.opacity(0.7)],
-        startPoint: .topLeading,
-        endPoint: .bottomTrailing
-      )
-      }
-    }
-    
-    private func confidenceGradient(_ confidence: Double) -> LinearGradient {
-      if confidence >= 0.7 {
-        return LinearGradient(
-          colors: [Color.green, Color.green.opacity(0.7)],
-          startPoint: .topLeading,
-          endPoint: .bottomTrailing
-        )
-      } else if confidence >= 0.4 {
-        return LinearGradient(
-          colors: [Color.orange, Color.orange.opacity(0.7)],
-          startPoint: .topLeading,
-          endPoint: .bottomTrailing
-        )
-      } else {
-        return LinearGradient(
-          colors: [Color.red, Color.red.opacity(0.7)],
-          startPoint: .topLeading,
-          endPoint: .bottomTrailing
-        )
-      }
     }
   }
   
@@ -323,42 +369,6 @@ extension HomeView {
     
     var body: some View {
       VStack(spacing: 16) {
-        // Created playlist card
-        if let playlist = vm.createdPlaylist {
-          ModernCard {
-            VStack(spacing: 16) {
-              HStack {
-                VStack(alignment: .leading, spacing: 8) {
-                  Text("✨ Playlist Created")
-                    .font(.system(size: 20, weight: .bold, design: .rounded))
-                    .foregroundColor(.white)
-                  
-                  Text(playlist.name)
-                    .font(.system(size: 16, weight: .medium))
-                    .foregroundColor(.gray)
-                }
-                Spacer()
-              }
-              
-              if let url = playlist.url {
-                Link(destination: url) {
-                  HStack {
-                    Image(systemName: "play.circle.fill")
-                      .font(.system(size: 20))
-                    Text("Open in Spotify")
-                      .font(.system(size: 16, weight: .semibold))
-                  }
-                  .foregroundColor(.white)
-                  .frame(maxWidth: .infinity)
-                  .padding(.vertical, 14)
-                  .background(Color.green)
-                  .cornerRadius(14)
-                }
-              }
-            }
-          }
-        }
-        
         // Error message
         if let err = vm.errorMessage {
           Text(err)
@@ -376,7 +386,7 @@ extension HomeView {
             title: "Connect Spotify",
             icon: "arrow.up.right.circle.fill",
             gradient: LinearGradient(
-              colors: [Color.appGreen2, Color.appGreen3],
+              colors: [Color.AppGreen2, Color.AppGreen3],
               startPoint: .leading,
               endPoint: .trailing
             ),
@@ -402,13 +412,13 @@ extension HomeView {
             .padding(.vertical, 18)
             .background(
               LinearGradient(
-                colors: [Color.appGreenAccent, Color.appGreen4],
+                colors: [Color.AppGreenAccent, Color.AppGreen4],
                 startPoint: .leading,
                 endPoint: .trailing
               )
             )
             .clipShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
-            .shadow(color: Color.appGreenAccent.opacity(0.4), radius: 15, x: 0, y: 8)
+            .shadow(color: Color.AppGreenAccent.opacity(0.4), radius: 15, x: 0, y: 8)
           }
           .disabled(vm.pickedImageData == nil || vm.isLoading || !vm.isAuthorized)
           .opacity((vm.pickedImageData == nil || vm.isLoading || !vm.isAuthorized) ? 0.5 : 1.0)

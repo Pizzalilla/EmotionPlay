@@ -1,0 +1,80 @@
+{
+  "source": "/Users/wongwilson/Downloads/EmotionPlay/EmotionPlay/Views/PlaylistResultSheet.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "Mood Detected!",
+        "location": {
+          "startingColumn": 38,
+          "startingLine": 43
+        }
+      },
+      {
+        "comment": "",
+        "key": "We analyzed your photo",
+        "location": {
+          "startingColumn": 38,
+          "startingLine": 47
+        }
+      },
+      {
+        "comment": "",
+        "key": "Your Mood",
+        "location": {
+          "startingColumn": 42,
+          "startingLine": 58
+        }
+      },
+      {
+        "comment": "",
+        "key": "%lld%%",
+        "location": {
+          "startingColumn": 42,
+          "startingLine": 71
+        }
+      },
+      {
+        "comment": "",
+        "key": "confident",
+        "location": {
+          "startingColumn": 42,
+          "startingLine": 75
+        }
+      },
+      {
+        "comment": "",
+        "key": "Created just for you based on your %@ mood",
+        "location": {
+          "startingColumn": 38,
+          "startingLine": 121
+        }
+      },
+      {
+        "comment": "",
+        "key": "Your Playlist",
+        "location": {
+          "startingColumn": 46,
+          "startingLine": 108
+        }
+      },
+      {
+        "comment": "",
+        "key": "Open in Spotify",
+        "location": {
+          "startingColumn": 46,
+          "startingLine": 140
+        }
+      },
+      {
+        "comment": "",
+        "key": "Take Another Photo",
+        "location": {
+          "startingColumn": 42,
+          "startingLine": 171
+        }
+      }
+    ]
+  },
+  "version": 1
+}

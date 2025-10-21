@@ -7,15 +7,15 @@
         "key": "Home",
         "location": {
           "startingColumn": 30,
-          "startingLine": 48
+          "startingLine": 54
         }
       },
       {
         "comment": "",
-        "key": "History",
+        "key": "Playlists",
         "location": {
           "startingColumn": 30,
-          "startingLine": 53
+          "startingLine": 59
         }
       },
       {
@@ -23,23 +23,23 @@
         "key": "Profile",
         "location": {
           "startingColumn": 28,
-          "startingLine": 68
+          "startingLine": 74
         }
       },
       {
         "comment": "",
         "key": "Setup Required",
         "location": {
-          "startingColumn": 16,
-          "startingLine": 87
+          "startingColumn": 18,
+          "startingLine": 96
         }
       },
       {
         "comment": "",
         "key": "Please ensure your Core ML model is properly added to the project",
         "location": {
-          "startingColumn": 16,
-          "startingLine": 95
+          "startingColumn": 18,
+          "startingLine": 105
         }
       }
     ]

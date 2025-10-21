@@ -26,15 +26,43 @@
 		</data>
 		<key>EmotionPlay.debug.dylib</key>
 		<data>
-		Lg0k1sKW7YQbZMztxMXzZ4JEaVk=
+		57sfRb+Me+Mnv4sXjLTpctFMKJc=
 		</data>
 		<key>Info.plist</key>
 		<data>
-		C082MOu7nhfBTyTs5S5CVyiLIrU=
+		leLw/A9HjlpUQdezSKDQY2hou6U=
 		</data>
 		<key>PkgInfo</key>
 		<data>
 		n57qDP4tZfLD1rCS43W0B4LQjzE=
+		</data>
+		<key>PlugIns/EmotiPlayExtension.appex/EmotiPlayExtension</key>
+		<data>
+		tCdF23gH74NZrjCGPjbsRS2MBEI=
+		</data>
+		<key>PlugIns/EmotiPlayExtension.appex/EmotiPlayExtension.debug.dylib</key>
+		<data>
+		bR5CfGh+gcBuw39YDR9rvfxbdRA=
+		</data>
+		<key>PlugIns/EmotiPlayExtension.appex/Info.plist</key>
+		<data>
+		Z6Q5yJ7gXxigDTPp6vNwb9XLdhI=
+		</data>
+		<key>PlugIns/EmotiPlayExtension.appex/Metadata.appintents/extract.actionsdata</key>
+		<data>
+		gqwZQWEoC70b51HEAxVLZaIVIYw=
+		</data>
+		<key>PlugIns/EmotiPlayExtension.appex/Metadata.appintents/version.json</key>
+		<data>
+		kSxBG4AkjH7gz3iMXvK2JDx3VZI=
+		</data>
+		<key>PlugIns/EmotiPlayExtension.appex/_CodeSignature/CodeResources</key>
+		<data>
+		UtjRfVHnGj+NowVgDFP1rKt0/kk=
+		</data>
+		<key>PlugIns/EmotiPlayExtension.appex/__preview.dylib</key>
+		<data>
+		OrDa7Oc44pFwaLoTQkcusapIQrA=
 		</data>
 		<key>__preview.dylib</key>
 		<data>
@@ -82,7 +110,56 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			WKf6WgGOeEiRH0wtACg82rp+wbIYx95RhneQ7JaLL1A=
+			NeZZINq+Szt3uLL9MWG1RVKnzzyxb4trgpA1/nLuCUw=
+			</data>
+		</dict>
+		<key>PlugIns/EmotiPlayExtension.appex/EmotiPlayExtension</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			fwsIoEIo4uaKztxumaEZjf27RnrGCrfNBqYXiZP+tBY=
+			</data>
+		</dict>
+		<key>PlugIns/EmotiPlayExtension.appex/EmotiPlayExtension.debug.dylib</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			bJ4EB6LESCHnI6dOA6hBdm9rbjVI2X1YS0Lgce4Z3jQ=
+			</data>
+		</dict>
+		<key>PlugIns/EmotiPlayExtension.appex/Info.plist</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			yJXXKmHTnXQeLhkZD8it5zqIv77GM/sQWLS5lmjW7B0=
+			</data>
+		</dict>
+		<key>PlugIns/EmotiPlayExtension.appex/Metadata.appintents/extract.actionsdata</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			ndjSBxx9/1ydZrTbiLgNBO5wTuYNR/e+aDBU17v9AiI=
+			</data>
+		</dict>
+		<key>PlugIns/EmotiPlayExtension.appex/Metadata.appintents/version.json</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			U78a4FzpdDBQtWWERXa1pFNZguleRB2jhjmEeUCRdy4=
+			</data>
+		</dict>
+		<key>PlugIns/EmotiPlayExtension.appex/_CodeSignature/CodeResources</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			ibj9U5z7JcOpDztpccCKWblgCxnoAqPFuRLNJaNu60I=
+			</data>
+		</dict>
+		<key>PlugIns/EmotiPlayExtension.appex/__preview.dylib</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			hjBGL1t8WiX9qrtIry83v8P0ksCyOHU7k9QZ2Q+btok=
 			</data>
 		</dict>
 		<key>__preview.dylib</key>

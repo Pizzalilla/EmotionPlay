@@ -8,7 +8,7 @@ final class MoodToPlaylistService {
         "happy":    ["3AJwUDP919kvQ9QcozQPxg","6habFhsOp2NvshLv26DqMb"],
         "sad":      ["4iJyoBOLtHqaGxP12qzhQI","3ZCTVFBt2Brf31RLEnCkWJ"],
         "angry":    ["0eGsygTp906u18L0Oimnem","2EqlS6tkEnglzr7tkKAAYD"],
-        "surprised":["0VjIjW4GlUZAMYd2vXMi3b","7ytR5pFWmSjzHJIeQkgog4"]
+        "energetic":["0VjIjW4GlUZAMYd2vXMi3b","7ytR5pFWmSjzHJIeQkgog4"]
     ]
 
     init(recco: ReccoBeatsClient, spotify: SpotifyPlaylistService) {

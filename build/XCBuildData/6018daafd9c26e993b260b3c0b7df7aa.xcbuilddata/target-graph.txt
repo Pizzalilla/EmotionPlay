@@ -1,6 +1,0 @@
-Target dependency graph (3 targets)
-Target 'EmotionPlayUITests' in project 'EmotionPlay'
-➜ Explicit dependency on target 'EmotionPlay' in project 'EmotionPlay'
-Target 'EmotionPlayTests' in project 'EmotionPlay'
-➜ Explicit dependency on target 'EmotionPlay' in project 'EmotionPlay'
-Target 'EmotionPlay' in project 'EmotionPlay' (no dependencies)
