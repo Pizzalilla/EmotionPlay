@@ -3,6 +3,7 @@
 /Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphoneos/EmotionPlay.build/Objects-normal/arm64/MoodEntry.o
 /Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphoneos/EmotionPlay.build/Objects-normal/arm64/Playlist.o
 /Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphoneos/EmotionPlay.build/Objects-normal/arm64/Song.o
+/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphoneos/EmotionPlay.build/Objects-normal/arm64/ReccoBeatsClient.o
 /Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphoneos/EmotionPlay.build/Objects-normal/arm64/UserPreferences.o
 /Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphoneos/EmotionPlay.build/Objects-normal/arm64/AuthProviding.o
 /Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphoneos/EmotionPlay.build/Objects-normal/arm64/MoodInferencer.o
@@ -12,6 +13,7 @@
 /Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphoneos/EmotionPlay.build/Objects-normal/arm64/SpotifyAuthManager+Providing.o
 /Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphoneos/EmotionPlay.build/Objects-normal/arm64/DirectCoreMLInfencer.o
 /Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphoneos/EmotionPlay.build/Objects-normal/arm64/PKCE.o
+/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphoneos/EmotionPlay.build/Objects-normal/arm64/SpotifyPlaylist.o
 /Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphoneos/EmotionPlay.build/Objects-normal/arm64/RemoteMoodInferencer.o
 /Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphoneos/EmotionPlay.build/Objects-normal/arm64/SpotifyAPIClient.o
 /Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphoneos/EmotionPlay.build/Objects-normal/arm64/SpotifyAuthManager.o
@@ -22,6 +24,7 @@
 /Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphoneos/EmotionPlay.build/Objects-normal/arm64/FeatureMapping.o
 /Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphoneos/EmotionPlay.build/Objects-normal/arm64/Themes.o
 /Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphoneos/EmotionPlay.build/Objects-normal/arm64/HomeViewModel.o
+/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphoneos/EmotionPlay.build/Objects-normal/arm64/MoodToPlaylist.o
 /Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphoneos/EmotionPlay.build/Objects-normal/arm64/ContentView.o
 /Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphoneos/EmotionPlay.build/Objects-normal/arm64/HistoryView.o
 /Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphoneos/EmotionPlay.build/Objects-normal/arm64/HomeView.o
