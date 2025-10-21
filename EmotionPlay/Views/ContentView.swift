@@ -37,7 +37,7 @@ struct ContentView: View {
         // VM (inject shared stores/services)
         let homeVM = HomeViewModel(
           inferencer: inferencer,
-          music: client,
+          spotifyAuth: auth,
           prefs: prefs,
           history: history
         )

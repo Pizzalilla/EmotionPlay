@@ -45,7 +45,7 @@ final class SpotifyAuthManager: NSObject, ObservableObject {
 
   /// Starts PKCE auth using ASWebAuthenticationSession
   @MainActor
-  func authorize(from viewController: UIViewController?) async throws {
+  func authorize(from viewController: UIViewController) async throws {
     let verifier  = PKCE.generateCodeVerifier()
     let challenge = PKCE.codeChallenge(from: verifier)
 
