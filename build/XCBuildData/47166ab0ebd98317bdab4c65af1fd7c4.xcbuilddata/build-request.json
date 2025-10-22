@@ -22,11 +22,13 @@
     "activeArchitecture" : "arm64",
     "activeRunDestination" : {
       "disableOnlyActiveArch" : false,
-      "platform" : "iphonesimulator",
-      "sdk" : "iphonesimulator26.0",
-      "sdkVariant" : "iphonesimulator",
+      "platform" : "iphoneos",
+      "sdk" : "iphoneos26.0",
+      "sdkVariant" : "iphoneos",
       "supportedArchitectures" : [
-        "arm64"
+        "arm64e",
+        "arm64",
+        "arm64_32"
       ],
       "targetArchitecture" : "arm64"
     },
@@ -43,19 +45,19 @@
     "overrides" : {
       "synthesized" : {
         "table" : {
-          "ASSETCATALOG_FILTER_FOR_DEVICE_MODEL" : "iPhone18,1",
+          "ASSETCATALOG_FILTER_FOR_DEVICE_MODEL" : "iPhone17,1",
           "ASSETCATALOG_FILTER_FOR_DEVICE_OS_VERSION" : "26.0",
-          "ASSETCATALOG_FILTER_FOR_THINNING_DEVICE_CONFIGURATION" : "iPhone18,1",
+          "ASSETCATALOG_FILTER_FOR_THINNING_DEVICE_CONFIGURATION" : "iPhone17,1",
           "BUILD_ACTIVE_RESOURCES_ONLY" : "YES",
           "CLANG_COVERAGE_MAPPING" : "YES",
           "CLANG_PROFILE_DATA_DIRECTORY" : "/Users/wongwilson/Library/Developer/Xcode/DerivedData/EmotionPlay-emsbvqazeemewnablrsrvxudsblz/CodeCoverage/ProfileData",
           "ENABLE_PREVIEWS" : "NO",
           "ENABLE_XOJIT_PREVIEWS" : "NO",
           "ONLY_ACTIVE_ARCH" : "YES",
-          "TARGET_DEVICE_IDENTIFIER" : "7929D532-D93F-45A9-8313-E9CFEBF06BB7",
-          "TARGET_DEVICE_MODEL" : "iPhone18,1",
+          "TARGET_DEVICE_IDENTIFIER" : "00008140-00146D2A0E10801C",
+          "TARGET_DEVICE_MODEL" : "iPhone17,1",
           "TARGET_DEVICE_OS_VERSION" : "26.0",
-          "TARGET_DEVICE_PLATFORM_NAME" : "iphonesimulator"
+          "TARGET_DEVICE_PLATFORM_NAME" : "iphoneos"
         }
       }
     }
