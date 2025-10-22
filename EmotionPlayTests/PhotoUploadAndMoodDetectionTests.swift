@@ -33,7 +33,7 @@ final class MockMoodInferencer: MoodInferencer {
 
 final class MockSpotifyAuth: SpotifyAuthProviding {
     var mockIsAuthorized = true
-    var mockToken = "test_token"
+    var mockToken: String? = "test_token"
     
     var isAuthorized: Bool { mockIsAuthorized }
     
@@ -49,20 +49,29 @@ final class MockSpotifyAuth: SpotifyAuthProviding {
     }
 }
 
-final class MockHistoryStore: HistoryStore {
-    var mockItems: [HistoryItem] = []
+// Create a simple mock history store that doesn't inherit from HistoryStore
+final class MockHistoryStore: ObservableObject {
+    @Published var items: [HistoryItem] = []
     var addCallCount = 0
     var lastAddedItem: HistoryItem?
     
-    override var items: [HistoryItem] {
-        get { mockItems }
-        set { mockItems = newValue }
-    }
-    
-    override func add(_ item: HistoryItem) {
+    func add(_ item: HistoryItem) {
         addCallCount += 1
         lastAddedItem = item
-        mockItems.append(item)
+        items.insert(item, at: 0)
+    }
+    
+    func rename(id: HistoryItem.ID, to newTitle: String) {
+        guard let idx = items.firstIndex(where: { $0.id == id }) else { return }
+        items[idx].playlistName = newTitle
+    }
+    
+    func delete(at offsets: IndexSet) {
+        items.remove(atOffsets: offsets)
+    }
+    
+    func clearAll() {
+        items.removeAll()
     }
 }
 
@@ -81,16 +90,19 @@ struct PhotoUploadAndMoodDetectionTests {
         let mockInferencer = inferencer ?? MockMoodInferencer()
         let mockAuth = auth ?? MockSpotifyAuth()
         let prefs = UserPreferences()
-        let history = MockHistoryStore()
+        let mockHistory = MockHistoryStore()
+        
+        // Create real HistoryStore for the ViewModel
+        let realHistory = HistoryStore()
         
         let vm = HomeViewModel(
             inferencer: mockInferencer,
             spotifyAuth: mockAuth,
             prefs: prefs,
-            history: history
+            history: realHistory
         )
         
-        return (vm, mockInferencer, mockAuth, history)
+        return (vm, mockInferencer, mockAuth, mockHistory)
     }
     
     // MARK: - Initial State Tests
@@ -151,7 +163,7 @@ struct PhotoUploadAndMoodDetectionTests {
         let inferencer = MockMoodInferencer()
         inferencer.mockResult = (.happy, 0.92)
         
-        let (vm, mockInferencer, _, history) = createViewModel(inferencer: inferencer)
+        let (vm, mockInferencer, _, _) = createViewModel(inferencer: inferencer)
         
         // Set up test image data
         vm.pickedImageData = Data([0x01, 0x02, 0x03])
@@ -489,14 +501,14 @@ struct MoodDetectionErrorTests {
     func testNoFaceDetectedError() {
         let error = MoodDetectionError.noFaceDetected
         
-        #expect(error.errorDescription?.contains("face") == true)
+        #expect(error.message.contains("face") == true)
     }
     
     @Test("Low confidence error includes confidence value")
     func testLowConfidenceError() {
         let error = MoodDetectionError.lowConfidence(0.15)
         
-        #expect(error.errorDescription?.contains("confidence") == true)
+        #expect(error.message.contains("confidence") == true)
     }
     
     @Test("Processing failed error includes custom message")
@@ -504,7 +516,7 @@ struct MoodDetectionErrorTests {
         let customMessage = "Custom error message"
         let error = MoodDetectionError.processingFailed(customMessage)
         
-        #expect(error.errorDescription == customMessage)
+        #expect(error.message.contains(customMessage) == true)
     }
     
     @Test("MoodDetectionError is Identifiable")

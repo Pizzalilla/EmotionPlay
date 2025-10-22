@@ -1,0 +1,80 @@
+{
+  "source": "/Users/wongwilson/Downloads/EmotionPlay/EmotiPlay/EmotiPlayWidget.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "%lld%%",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 141
+        }
+      },
+      {
+        "comment": "",
+        "key": "New",
+        "location": {
+          "startingColumn": 34,
+          "startingLine": 156
+        }
+      },
+      {
+        "comment": "",
+        "key": "%lld%% confident",
+        "location": {
+          "startingColumn": 34,
+          "startingLine": 201
+        }
+      },
+      {
+        "comment": "",
+        "key": "Take Photo",
+        "location": {
+          "startingColumn": 38,
+          "startingLine": 212
+        }
+      },
+      {
+        "comment": "",
+        "key": "Recent",
+        "location": {
+          "startingColumn": 34,
+          "startingLine": 227
+        }
+      },
+      {
+        "comment": "",
+        "key": "%lld%% confident",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 288
+        }
+      },
+      {
+        "comment": "",
+        "key": "Recent Playlists",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 296
+        }
+      },
+      {
+        "comment": "",
+        "key": "EmotiPlay",
+        "location": {
+          "startingColumn": 35,
+          "startingLine": 370
+        }
+      },
+      {
+        "comment": "",
+        "key": "Your current mood and playlists at a glance",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 371
+        }
+      }
+    ]
+  },
+  "version": 1
+}

@@ -8,10 +8,10 @@
 import WidgetKit
 import SwiftUI
 
-@main
+
 struct EmotiPlayBundle: WidgetBundle {
     var body: some Widget {
-        EmotiPlay()
+        EmotiPlayWidget()
         EmotiPlayControl()
         EmotiPlayLiveActivity()
     }

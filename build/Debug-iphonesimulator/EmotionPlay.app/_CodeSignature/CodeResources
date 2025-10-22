@@ -26,7 +26,11 @@
 		</data>
 		<key>EmotionPlay.debug.dylib</key>
 		<data>
-		57sfRb+Me+Mnv4sXjLTpctFMKJc=
+		b5SqDRW/3GaP0t9XZcHkQcBtxXg=
+		</data>
+		<key>EmotionPlay.xctestplan</key>
+		<data>
+		sqSM5jhDjAGfDieNLqR91L4VkX8=
 		</data>
 		<key>Info.plist</key>
 		<data>
@@ -38,11 +42,11 @@
 		</data>
 		<key>PlugIns/EmotiPlayExtension.appex/EmotiPlayExtension</key>
 		<data>
-		tCdF23gH74NZrjCGPjbsRS2MBEI=
+		+OeDa5TMLtiTenrX6OZtQsNrvd4=
 		</data>
 		<key>PlugIns/EmotiPlayExtension.appex/EmotiPlayExtension.debug.dylib</key>
 		<data>
-		bR5CfGh+gcBuw39YDR9rvfxbdRA=
+		GhV/fAhgiDwdXu4AAmhZlo9DSy0=
 		</data>
 		<key>PlugIns/EmotiPlayExtension.appex/Info.plist</key>
 		<data>
@@ -50,19 +54,31 @@
 		</data>
 		<key>PlugIns/EmotiPlayExtension.appex/Metadata.appintents/extract.actionsdata</key>
 		<data>
-		YWiclQIsHJRpGWmotnxtb6dSgcI=
+		IKl9U4VuwJDjn5xRWgCCPslMPdc=
 		</data>
 		<key>PlugIns/EmotiPlayExtension.appex/Metadata.appintents/version.json</key>
 		<data>
-		kSxBG4AkjH7gz3iMXvK2JDx3VZI=
+		TY2tWAqgMoaE49pcDLWKF8StLJ0=
 		</data>
 		<key>PlugIns/EmotiPlayExtension.appex/_CodeSignature/CodeResources</key>
 		<data>
-		UtjRfVHnGj+NowVgDFP1rKt0/kk=
+		BL6IP+u0ZjUz15FIMvNysPB9iok=
 		</data>
 		<key>PlugIns/EmotiPlayExtension.appex/__preview.dylib</key>
 		<data>
 		OrDa7Oc44pFwaLoTQkcusapIQrA=
+		</data>
+		<key>PlugIns/EmotionPlayTests.xctest/EmotionPlayTests</key>
+		<data>
+		QdSuMcLrEJqaiL8tUiOwjN0RN9Q=
+		</data>
+		<key>PlugIns/EmotionPlayTests.xctest/Info.plist</key>
+		<data>
+		SnUDmxxCH2phF/Hw34SGNPskpfs=
+		</data>
+		<key>PlugIns/EmotionPlayTests.xctest/_CodeSignature/CodeResources</key>
+		<data>
+		3o69XTlKev2ue+EtJjmArDvtlU4=
 		</data>
 		<key>__preview.dylib</key>
 		<data>
@@ -110,21 +126,28 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			NeZZINq+Szt3uLL9MWG1RVKnzzyxb4trgpA1/nLuCUw=
+			zg57ZfXKQ5uRVfISsw+LSNtHauIbN9w6R5U9ggUSYP8=
+			</data>
+		</dict>
+		<key>EmotionPlay.xctestplan</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			az0T+cCXUQZK483zQCjWvIGAmrEJg72WnawcwKulzzc=
 			</data>
 		</dict>
 		<key>PlugIns/EmotiPlayExtension.appex/EmotiPlayExtension</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			fwsIoEIo4uaKztxumaEZjf27RnrGCrfNBqYXiZP+tBY=
+			y1liY7gcJF7EZW6STEGGKjwoTCLiauPNevUI8OxrBpg=
 			</data>
 		</dict>
 		<key>PlugIns/EmotiPlayExtension.appex/EmotiPlayExtension.debug.dylib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			bJ4EB6LESCHnI6dOA6hBdm9rbjVI2X1YS0Lgce4Z3jQ=
+			7M3i1DnJOupOVMl1QVKjw1h3QhQ+/E9DNSTFbWuwkeM=
 			</data>
 		</dict>
 		<key>PlugIns/EmotiPlayExtension.appex/Info.plist</key>
@@ -138,21 +161,21 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			BpK1u/Kf4XvVgYlfoIgoHb7edPDujHN6Ph8cHq3+0Pk=
+			SoN3yX0GLrf7zcTmHIz+kpJFidTCzcaAplKDhRzf/9s=
 			</data>
 		</dict>
 		<key>PlugIns/EmotiPlayExtension.appex/Metadata.appintents/version.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			U78a4FzpdDBQtWWERXa1pFNZguleRB2jhjmEeUCRdy4=
+			Y056N8w2ciFNVb92lsX2dN5w8ZQHSQrKaKbrHAt2K9Q=
 			</data>
 		</dict>
 		<key>PlugIns/EmotiPlayExtension.appex/_CodeSignature/CodeResources</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			ibj9U5z7JcOpDztpccCKWblgCxnoAqPFuRLNJaNu60I=
+			CXJFXRlB+/wTCjvTqK83qGES7KZPGg9p56Bjt1d0RBs=
 			</data>
 		</dict>
 		<key>PlugIns/EmotiPlayExtension.appex/__preview.dylib</key>
@@ -160,6 +183,27 @@
 			<key>hash2</key>
 			<data>
 			hjBGL1t8WiX9qrtIry83v8P0ksCyOHU7k9QZ2Q+btok=
+			</data>
+		</dict>
+		<key>PlugIns/EmotionPlayTests.xctest/EmotionPlayTests</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			L0gal0GthTS9+ecOuG8rq80qW2S0ecYGdJ/GW54s6sU=
+			</data>
+		</dict>
+		<key>PlugIns/EmotionPlayTests.xctest/Info.plist</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			67U7fuVrTUW8SSu5fxXijmcP+PpoTAk/5emyPcOIZNI=
+			</data>
+		</dict>
+		<key>PlugIns/EmotionPlayTests.xctest/_CodeSignature/CodeResources</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			8pnerkzoV2MYKf3NUV7rZEHeBvF6G8x6QhbW568QGsg=
 			</data>
 		</dict>
 		<key>__preview.dylib</key>

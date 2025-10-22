@@ -38,8 +38,8 @@
         "comment": "",
         "key": "%lld%%",
         "location": {
-          "startingColumn": 18,
-          "startingLine": 131
+          "startingColumn": 20,
+          "startingLine": 130
         }
       },
       {
@@ -47,7 +47,7 @@
         "key": "Rename",
         "location": {
           "startingColumn": 24,
-          "startingLine": 203
+          "startingLine": 221
         }
       },
       {
@@ -55,7 +55,7 @@
         "key": "e.g. Morning Boost, Exam Stress Mix",
         "location": {
           "startingColumn": 23,
-          "startingLine": 192
+          "startingLine": 210
         }
       },
       {
@@ -63,7 +63,7 @@
         "key": "Session Title",
         "location": {
           "startingColumn": 18,
-          "startingLine": 196
+          "startingLine": 214
         }
       },
       {
@@ -71,7 +71,7 @@
         "key": "Cancel",
         "location": {
           "startingColumn": 18,
-          "startingLine": 207
+          "startingLine": 225
         }
       },
       {
@@ -79,7 +79,7 @@
         "key": "Save",
         "location": {
           "startingColumn": 18,
-          "startingLine": 214
+          "startingLine": 232
         }
       }
     ]

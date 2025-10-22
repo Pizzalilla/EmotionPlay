@@ -76,103 +76,121 @@ struct HistoryView: View {
   }
 }
 
-// MARK: - Row
-
 private struct HistoryRow: View {
-  let item: HistoryItem
+    let item: HistoryItem
+    @State private var showShareSheet = false
 
-  var body: some View {
-    HStack(spacing: 16) {
-      // Thumbnail
-      if let img = item.uiImage {
-        Image(uiImage: img)
-          .resizable()
-          .scaledToFill()
-          .frame(width: 64, height: 64)
-          .clipShape(RoundedRectangle(cornerRadius: 14, style: .continuous))
-          .overlay(
-            RoundedRectangle(cornerRadius: 14, style: .continuous)
-              .stroke(Color.gray.opacity(0.3), lineWidth: 1)
-          )
-      } else {
-        RoundedRectangle(cornerRadius: 14, style: .continuous)
-          .fill(
-            LinearGradient(
-              colors: [Color.AppGreenAccent.opacity(0.6), Color.AppGreen3.opacity(0.6)],
-              startPoint: .topLeading,
-              endPoint: .bottomTrailing
+    var body: some View {
+      HStack(spacing: 16) {
+        // Thumbnail
+        if let img = item.uiImage {
+          Image(uiImage: img)
+            .resizable()
+            .scaledToFill()
+            .frame(width: 64, height: 64)
+            .clipShape(RoundedRectangle(cornerRadius: 14, style: .continuous))
+            .overlay(
+              RoundedRectangle(cornerRadius: 14, style: .continuous)
+                .stroke(Color.gray.opacity(0.3), lineWidth: 1)
             )
-          )
-          .frame(width: 64, height: 64)
-          .overlay(
-            Image(systemName: "music.note")
-              .font(.title2)
+        } else {
+          RoundedRectangle(cornerRadius: 14, style: .continuous)
+            .fill(
+              LinearGradient(
+                colors: [Color.AppGreenAccent.opacity(0.6), Color.AppGreen3.opacity(0.6)],
+                startPoint: .topLeading,
+                endPoint: .bottomTrailing
+              )
+            )
+            .frame(width: 64, height: 64)
+            .overlay(
+              Image(systemName: "music.note")
+                .font(.title2)
+                .foregroundColor(.white)
+            )
+        }
+
+        // Info
+        VStack(alignment: .leading, spacing: 6) {
+          // Date
+          Text(item.date.formatted(date: .abbreviated, time: .shortened))
+            .font(.caption)
+            .foregroundColor(.gray)
+
+          // Mood + Confidence
+          HStack(spacing: 6) {
+            Text(moodEmoji(item.mood))
+              .font(.body)
+            
+            Text(item.mood.rawValue.capitalized)
+              .font(.headline)
               .foregroundColor(.white)
-          )
-      }
-
-      // Info
-      VStack(alignment: .leading, spacing: 6) {
-        // Date
-        Text(item.date.formatted(date: .abbreviated, time: .shortened))
-          .font(.caption)
-          .foregroundColor(.gray)
-
-        // Mood + Confidence
-        HStack(spacing: 6) {
-          Text(moodEmoji(item.mood))
-            .font(.body)
+            
+            if let conf = item.confidence {
+              Text("\(Int(conf * 100))%")
+                .font(.caption)
+                .foregroundColor(.AppGreenAccent)
+                .padding(.horizontal, 6)
+                .padding(.vertical, 2)
+                .background(Color.AppGreenAccent.opacity(0.2))
+                .cornerRadius(6)
+            }
+          }
           
-          Text(item.mood.rawValue.capitalized)
-            .font(.headline)
-            .foregroundColor(.white)
+          // Playlist name
+          Text(item.playlistName)
+            .font(.subheadline)
+            .foregroundColor(.white.opacity(0.7))
+            .lineLimit(1)
+        }
+
+        Spacer()
+
+        // Action buttons
+        HStack(spacing: 12) {
+          // Share button
+          Button(action: {
+            showShareSheet = true
+          }) {
+            Image(systemName: "square.and.arrow.up")
+              .font(.system(size: 22))
+              .foregroundColor(.white.opacity(0.7))
+              .frame(width: 44, height: 44)
+              .background(Color.secondaryCard)
+              .clipShape(Circle())
+          }
+          .buttonStyle(.plain)
+          .sheet(isPresented: $showShareSheet) {
+            SharePlaylistView(item: item)
+          }
           
-          if let conf = item.confidence {
-            Text("\(Int(conf * 100))%")
-              .font(.caption)
-              .foregroundColor(.AppGreenAccent)
-              .padding(.horizontal, 6)
-              .padding(.vertical, 2)
-              .background(Color.AppGreenAccent.opacity(0.2))
-              .cornerRadius(6)
+          // Play button
+          if let url = item.playlistURL {
+            Link(destination: url) {
+              Image(systemName: "play.circle.fill")
+                .font(.system(size: 32))
+                .foregroundColor(.AppGreenAccent)
+            }
           }
         }
-        
-        // Playlist name
-        Text(item.playlistName)
-          .font(.subheadline)
-          .foregroundColor(.white.opacity(0.7))
-          .lineLimit(1)
       }
-
-      Spacer()
-
-      // Play button
-      if let url = item.playlistURL {
-        Link(destination: url) {
-          Image(systemName: "play.circle.fill")
-            .font(.system(size: 32))
-            .foregroundColor(.AppGreenAccent)
-        }
+      .padding(.vertical, 8)
+    }
+    
+    private func moodEmoji(_ mood: Mood) -> String {
+      switch mood {
+      case .happy: return "😊"
+      case .sad: return "😢"
+      case .calm: return "😌"
+      case .energetic: return "⚡️"
+      case .angry: return "😠"
+      case .anxious: return "😰"
+      case .melancholic: return "😔"
+      case .focused: return "🎯"
+      case .nostalgic: return "🌅"
       }
     }
-    .padding(.vertical, 8)
   }
-  
-  private func moodEmoji(_ mood: Mood) -> String {
-    switch mood {
-    case .happy: return "😊"
-    case .sad: return "😢"
-    case .calm: return "😌"
-    case .energetic: return "⚡️"
-    case .angry: return "😠"
-    case .anxious: return "😰"
-    case .melancholic: return "😔"
-    case .focused: return "🎯"
-    case .nostalgic: return "🌅"
-    }
-  }
-}
 
 // MARK: - Rename Sheet
 

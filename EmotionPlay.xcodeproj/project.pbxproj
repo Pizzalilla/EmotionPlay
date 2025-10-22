@@ -10,6 +10,7 @@
 		6C9BEF1B2EA7992C002E0CB7 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C9BEF1A2EA7992C002E0CB7 /* WidgetKit.framework */; };
 		6C9BEF1D2EA7992C002E0CB7 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C9BEF1C2EA7992C002E0CB7 /* SwiftUI.framework */; };
 		6C9BEF2E2EA7992E002E0CB7 /* EmotiPlayExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 6C9BEF182EA7992C002E0CB7 /* EmotiPlayExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		6C9BEFA42EA7B885002E0CB7 /* EmotionPlay.xctestplan in Resources */ = {isa = PBXBuildFile; fileRef = 6C9BEFA32EA7B885002E0CB7 /* EmotionPlay.xctestplan */; };
 		C7BEFD5F2EA3ED5900301FED /* EmotiPlayFinal.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = C7BEFD5E2EA3ED5900301FED /* EmotiPlayFinal.mlmodel */; };
 /* End PBXBuildFile section */
 
@@ -55,6 +56,7 @@
 		6C9BEF182EA7992C002E0CB7 /* EmotiPlayExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = EmotiPlayExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C9BEF1A2EA7992C002E0CB7 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		6C9BEF1C2EA7992C002E0CB7 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		6C9BEFA32EA7B885002E0CB7 /* EmotionPlay.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = EmotionPlay.xctestplan; sourceTree = "<group>"; };
 		C75605BB2E5C692C000B07DF /* EmotionPlay.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EmotionPlay.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C75605C82E5C692D000B07DF /* EmotionPlayTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EmotionPlayTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C75605D22E5C692D000B07DF /* EmotionPlayUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EmotionPlayUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -66,6 +68,7 @@
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				Info.plist,
+				Views/ShareViewController.swift,
 			);
 			target = C75605BA2E5C692C000B07DF /* EmotionPlay */;
 		};
@@ -73,6 +76,13 @@
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				Info.plist,
+			);
+			target = 6C9BEF172EA7992C002E0CB7 /* EmotiPlayExtension */;
+		};
+		6C9BEFA92EA86499002E0CB7 /* Exceptions for "EmotionPlay" folder in "EmotiPlayExtension" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Views/ShareViewController.swift,
 			);
 			target = 6C9BEF172EA7992C002E0CB7 /* EmotiPlayExtension */;
 		};
@@ -91,6 +101,7 @@
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
 				6C9BEE772EA75535002E0CB7 /* Exceptions for "EmotionPlay" folder in "EmotionPlay" target */,
+				6C9BEFA92EA86499002E0CB7 /* Exceptions for "EmotionPlay" folder in "EmotiPlayExtension" target */,
 			);
 			path = EmotionPlay;
 			sourceTree = "<group>";
@@ -153,6 +164,7 @@
 		C75605B22E5C692C000B07DF = {
 			isa = PBXGroup;
 			children = (
+				6C9BEFA32EA7B885002E0CB7 /* EmotionPlay.xctestplan */,
 				C7BEFD5E2EA3ED5900301FED /* EmotiPlayFinal.mlmodel */,
 				C75605BD2E5C692C000B07DF /* EmotionPlay */,
 				C75605CB2E5C692D000B07DF /* EmotionPlayTests */,
@@ -329,6 +341,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6C9BEFA42EA7B885002E0CB7 /* EmotionPlay.xctestplan in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
