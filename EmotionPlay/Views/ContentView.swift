@@ -2,6 +2,8 @@
 //  ContentView.swift
 //  EmotionPlay
 //
+//  Updated with auto-redirect to History after playlist creation
+//
 
 import SwiftUI
 
@@ -20,7 +22,7 @@ struct ContentView: View {
     // Services
     let client = SpotifyAPIClient(auth: auth)
     
-    // Use Direct Core ML inferencer (bypasses Vision framework for better simulator compatibility)
+    // Use Direct Core ML inferencer
     let infer: MoodInferencer? = {
       do {
         return try DirectCoreMLInferencer()
@@ -37,23 +39,27 @@ struct ContentView: View {
         // VM (inject shared stores/services)
         let homeVM = HomeViewModel(
           inferencer: inferencer,
-          music: client,
+          spotifyAuth: auth,
           prefs: prefs,
           history: history
         )
 
         TabView(selection: $selectedTab) {
           // HOME
-          HomeView(vm: homeVM, goToProfileConnect: { selectedTab = 2 })
+          HomeView(
+            vm: homeVM,
+            goToProfileConnect: { selectedTab = 2 },
+            onPlaylistCreated: { selectedTab = 1 }  // ✨ NEW: Redirect to History
+          )
             .tabItem { Label("Home", systemImage: "house.fill") }
             .tag(0)
 
           // HISTORY
           HistoryView(store: history)
-            .tabItem { Label("History", systemImage: "clock.fill") }
+            .tabItem { Label("Playlists", systemImage: "music.note.list") }
             .tag(1)
 
-          // PROFILE (Spotify connect only here)
+          // PROFILE
           ProfileView(
             prefs: prefs,
             connectAction: { showAuthSheet = true },
@@ -68,7 +74,7 @@ struct ContentView: View {
           .tabItem { Label("Profile", systemImage: "person.fill") }
           .tag(2)
         }
-        .tint(Color.appTint)
+        .tint(Color.AppTint)
         .onChange(of: showAuthSheet) { newValue in
           if newValue {
             Task {
@@ -78,27 +84,32 @@ struct ContentView: View {
           }
         }
       } else {
-        // Error state if Core ML model fails to load
-        VStack(spacing: 20) {
-          Image(systemName: "exclamationmark.triangle.fill")
-            .font(.system(size: 60))
-            .foregroundColor(.red)
+        // Error state
+        ZStack {
+          Color.AppBackground.ignoresSafeArea()
           
-          Text("Setup Required")
-            .font(.title.bold())
-          
-          Text(initError ?? "Could not initialize mood detection")
-            .multilineTextAlignment(.center)
-            .foregroundColor(.secondary)
-            .padding(.horizontal)
-          
-          Text("Please ensure your Core ML model is properly added to the project")
-            .font(.caption)
-            .foregroundColor(.secondary)
-            .multilineTextAlignment(.center)
-            .padding(.horizontal)
+          VStack(spacing: 20) {
+            Image(systemName: "exclamationmark.triangle.fill")
+              .font(.system(size: 60))
+              .foregroundColor(.red)
+            
+            Text("Setup Required")
+              .font(.title.bold())
+              .foregroundColor(.white)
+            
+            Text(initError ?? "Could not initialize mood detection")
+              .multilineTextAlignment(.center)
+              .foregroundColor(.gray)
+              .padding(.horizontal)
+            
+            Text("Please ensure your Core ML model is properly added to the project")
+              .font(.caption)
+              .foregroundColor(.gray)
+              .multilineTextAlignment(.center)
+              .padding(.horizontal)
+          }
+          .padding()
         }
-        .padding()
       }
     }
   }

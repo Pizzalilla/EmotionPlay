@@ -7,10 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6C9BEF1B2EA7992C002E0CB7 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C9BEF1A2EA7992C002E0CB7 /* WidgetKit.framework */; };
+		6C9BEF1D2EA7992C002E0CB7 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C9BEF1C2EA7992C002E0CB7 /* SwiftUI.framework */; };
+		6C9BEF2E2EA7992E002E0CB7 /* EmotiPlayExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 6C9BEF182EA7992C002E0CB7 /* EmotiPlayExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		6C9BEFA42EA7B885002E0CB7 /* EmotionPlay.xctestplan in Resources */ = {isa = PBXBuildFile; fileRef = 6C9BEFA32EA7B885002E0CB7 /* EmotionPlay.xctestplan */; };
 		C7BEFD5F2EA3ED5900301FED /* EmotiPlayFinal.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = C7BEFD5E2EA3ED5900301FED /* EmotiPlayFinal.mlmodel */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		6C9BEF2C2EA7992E002E0CB7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C75605B32E5C692C000B07DF /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6C9BEF172EA7992C002E0CB7;
+			remoteInfo = EmotiPlayExtension;
+		};
 		C75605C92E5C692D000B07DF /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = C75605B32E5C692C000B07DF /* Project object */;
@@ -27,16 +38,71 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		6C9BEF332EA7992E002E0CB7 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				6C9BEF2E2EA7992E002E0CB7 /* EmotiPlayExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		6C9BEF182EA7992C002E0CB7 /* EmotiPlayExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = EmotiPlayExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		6C9BEF1A2EA7992C002E0CB7 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		6C9BEF1C2EA7992C002E0CB7 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		6C9BEFA32EA7B885002E0CB7 /* EmotionPlay.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = EmotionPlay.xctestplan; sourceTree = "<group>"; };
 		C75605BB2E5C692C000B07DF /* EmotionPlay.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EmotionPlay.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C75605C82E5C692D000B07DF /* EmotionPlayTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EmotionPlayTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C75605D22E5C692D000B07DF /* EmotionPlayUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EmotionPlayUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7BEFD5E2EA3ED5900301FED /* EmotiPlayFinal.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = EmotiPlayFinal.mlmodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		6C9BEE772EA75535002E0CB7 /* Exceptions for "EmotionPlay" folder in "EmotionPlay" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+				Views/ShareViewController.swift,
+			);
+			target = C75605BA2E5C692C000B07DF /* EmotionPlay */;
+		};
+		6C9BEF322EA7992E002E0CB7 /* Exceptions for "EmotiPlay" folder in "EmotiPlayExtension" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 6C9BEF172EA7992C002E0CB7 /* EmotiPlayExtension */;
+		};
+		6C9BEFA92EA86499002E0CB7 /* Exceptions for "EmotionPlay" folder in "EmotiPlayExtension" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Views/ShareViewController.swift,
+			);
+			target = 6C9BEF172EA7992C002E0CB7 /* EmotiPlayExtension */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
+		6C9BEF1E2EA7992C002E0CB7 /* EmotiPlay */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				6C9BEF322EA7992E002E0CB7 /* Exceptions for "EmotiPlay" folder in "EmotiPlayExtension" target */,
+			);
+			path = EmotiPlay;
+			sourceTree = "<group>";
+		};
 		C75605BD2E5C692C000B07DF /* EmotionPlay */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				6C9BEE772EA75535002E0CB7 /* Exceptions for "EmotionPlay" folder in "EmotionPlay" target */,
+				6C9BEFA92EA86499002E0CB7 /* Exceptions for "EmotionPlay" folder in "EmotiPlayExtension" target */,
+			);
 			path = EmotionPlay;
 			sourceTree = "<group>";
 		};
@@ -53,6 +119,15 @@
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		6C9BEF152EA7992C002E0CB7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6C9BEF1D2EA7992C002E0CB7 /* SwiftUI.framework in Frameworks */,
+				6C9BEF1B2EA7992C002E0CB7 /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C75605B82E5C692C000B07DF /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -77,13 +152,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6C9BEF192EA7992C002E0CB7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6C9BEF1A2EA7992C002E0CB7 /* WidgetKit.framework */,
+				6C9BEF1C2EA7992C002E0CB7 /* SwiftUI.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		C75605B22E5C692C000B07DF = {
 			isa = PBXGroup;
 			children = (
+				6C9BEFA32EA7B885002E0CB7 /* EmotionPlay.xctestplan */,
 				C7BEFD5E2EA3ED5900301FED /* EmotiPlayFinal.mlmodel */,
 				C75605BD2E5C692C000B07DF /* EmotionPlay */,
 				C75605CB2E5C692D000B07DF /* EmotionPlayTests */,
 				C75605D52E5C692D000B07DF /* EmotionPlayUITests */,
+				6C9BEF1E2EA7992C002E0CB7 /* EmotiPlay */,
+				6C9BEF192EA7992C002E0CB7 /* Frameworks */,
 				C75605BC2E5C692C000B07DF /* Products */,
 			);
 			sourceTree = "<group>";
@@ -94,6 +181,7 @@
 				C75605BB2E5C692C000B07DF /* EmotionPlay.app */,
 				C75605C82E5C692D000B07DF /* EmotionPlayTests.xctest */,
 				C75605D22E5C692D000B07DF /* EmotionPlayUITests.xctest */,
+				6C9BEF182EA7992C002E0CB7 /* EmotiPlayExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -101,6 +189,28 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		6C9BEF172EA7992C002E0CB7 /* EmotiPlayExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6C9BEF2F2EA7992E002E0CB7 /* Build configuration list for PBXNativeTarget "EmotiPlayExtension" */;
+			buildPhases = (
+				6C9BEF142EA7992C002E0CB7 /* Sources */,
+				6C9BEF152EA7992C002E0CB7 /* Frameworks */,
+				6C9BEF162EA7992C002E0CB7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				6C9BEF1E2EA7992C002E0CB7 /* EmotiPlay */,
+			);
+			name = EmotiPlayExtension;
+			packageProductDependencies = (
+			);
+			productName = EmotiPlayExtension;
+			productReference = 6C9BEF182EA7992C002E0CB7 /* EmotiPlayExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		C75605BA2E5C692C000B07DF /* EmotionPlay */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = C75605DC2E5C692D000B07DF /* Build configuration list for PBXNativeTarget "EmotionPlay" */;
@@ -108,10 +218,12 @@
 				C75605B72E5C692C000B07DF /* Sources */,
 				C75605B82E5C692C000B07DF /* Frameworks */,
 				C75605B92E5C692C000B07DF /* Resources */,
+				6C9BEF332EA7992E002E0CB7 /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				6C9BEF2D2EA7992E002E0CB7 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
 				C75605BD2E5C692C000B07DF /* EmotionPlay */,
@@ -176,9 +288,12 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1640;
+				LastSwiftUpdateCheck = 2600;
 				LastUpgradeCheck = 1640;
 				TargetAttributes = {
+					6C9BEF172EA7992C002E0CB7 = {
+						CreatedOnToolsVersion = 26.0.1;
+					};
 					C75605BA2E5C692C000B07DF = {
 						CreatedOnToolsVersion = 16.4;
 					};
@@ -209,15 +324,24 @@
 				C75605BA2E5C692C000B07DF /* EmotionPlay */,
 				C75605C72E5C692D000B07DF /* EmotionPlayTests */,
 				C75605D12E5C692D000B07DF /* EmotionPlayUITests */,
+				6C9BEF172EA7992C002E0CB7 /* EmotiPlayExtension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		6C9BEF162EA7992C002E0CB7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C75605B92E5C692C000B07DF /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6C9BEFA42EA7B885002E0CB7 /* EmotionPlay.xctestplan in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -238,6 +362,13 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		6C9BEF142EA7992C002E0CB7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C75605B72E5C692C000B07DF /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -263,6 +394,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		6C9BEF2D2EA7992E002E0CB7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6C9BEF172EA7992C002E0CB7 /* EmotiPlayExtension */;
+			targetProxy = 6C9BEF2C2EA7992E002E0CB7 /* PBXContainerItemProxy */;
+		};
 		C75605CA2E5C692D000B07DF /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = C75605BA2E5C692C000B07DF /* EmotionPlay */;
@@ -276,6 +412,68 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		6C9BEF302EA7992E002E0CB7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = N9NY8H8CDW;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = EmotiPlay/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = EmotiPlay;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "Kartikay-Singh.EmotionPlay.EmotiPlay";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		6C9BEF312EA7992E002E0CB7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = N9NY8H8CDW;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = EmotiPlay/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = EmotiPlay;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "Kartikay-Singh.EmotionPlay.EmotiPlay";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		C75605DA2E5C692D000B07DF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -402,8 +600,10 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = N9NY8H8CDW;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = EmotionPlay/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -429,8 +629,10 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = N9NY8H8CDW;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = EmotionPlay/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -520,6 +722,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		6C9BEF2F2EA7992E002E0CB7 /* Build configuration list for PBXNativeTarget "EmotiPlayExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6C9BEF302EA7992E002E0CB7 /* Debug */,
+				6C9BEF312EA7992E002E0CB7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		C75605B62E5C692C000B07DF /* Build configuration list for PBXProject "EmotionPlay" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

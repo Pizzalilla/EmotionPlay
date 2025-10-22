@@ -36,6 +36,16 @@
     "swift-dependencies" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphonesimulator/EmotionPlay.build/Objects-normal/arm64/Mood.swiftdeps",
     "swiftmodule" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphonesimulator/EmotionPlay.build/Objects-normal/arm64/Mood~partial.swiftmodule"
   },
+  "/Users/wongwilson/Downloads/EmotionPlay/EmotionPlay/Models/MoodDetectionError.swift" : {
+    "const-values" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphonesimulator/EmotionPlay.build/Objects-normal/arm64/MoodDetectionError.swiftconstvalues",
+    "dependencies" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphonesimulator/EmotionPlay.build/Objects-normal/arm64/MoodDetectionError.d",
+    "diagnostics" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphonesimulator/EmotionPlay.build/Objects-normal/arm64/MoodDetectionError.dia",
+    "index-unit-output-path" : "/EmotionPlay.build/Debug-iphonesimulator/EmotionPlay.build/Objects-normal/arm64/MoodDetectionError.o",
+    "llvm-bc" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphonesimulator/EmotionPlay.build/Objects-normal/arm64/MoodDetectionError.bc",
+    "object" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphonesimulator/EmotionPlay.build/Objects-normal/arm64/MoodDetectionError.o",
+    "swift-dependencies" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphonesimulator/EmotionPlay.build/Objects-normal/arm64/MoodDetectionError.swiftdeps",
+    "swiftmodule" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphonesimulator/EmotionPlay.build/Objects-normal/arm64/MoodDetectionError~partial.swiftmodule"
+  },
   "/Users/wongwilson/Downloads/EmotionPlay/EmotionPlay/Models/MoodEntry.swift" : {
     "const-values" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphonesimulator/EmotionPlay.build/Objects-normal/arm64/MoodEntry.swiftconstvalues",
     "dependencies" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphonesimulator/EmotionPlay.build/Objects-normal/arm64/MoodEntry.d",
@@ -126,15 +136,25 @@
     "swift-dependencies" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphonesimulator/EmotionPlay.build/Objects-normal/arm64/Recommender.swiftdeps",
     "swiftmodule" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphonesimulator/EmotionPlay.build/Objects-normal/arm64/Recommender~partial.swiftmodule"
   },
-  "/Users/wongwilson/Downloads/EmotionPlay/EmotionPlay/Protocols/SpotifyAuthManager+Providing.swift" : {
-    "const-values" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphonesimulator/EmotionPlay.build/Objects-normal/arm64/SpotifyAuthManager+Providing.swiftconstvalues",
-    "dependencies" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphonesimulator/EmotionPlay.build/Objects-normal/arm64/SpotifyAuthManager+Providing.d",
-    "diagnostics" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphonesimulator/EmotionPlay.build/Objects-normal/arm64/SpotifyAuthManager+Providing.dia",
-    "index-unit-output-path" : "/EmotionPlay.build/Debug-iphonesimulator/EmotionPlay.build/Objects-normal/arm64/SpotifyAuthManager+Providing.o",
-    "llvm-bc" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphonesimulator/EmotionPlay.build/Objects-normal/arm64/SpotifyAuthManager+Providing.bc",
-    "object" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphonesimulator/EmotionPlay.build/Objects-normal/arm64/SpotifyAuthManager+Providing.o",
-    "swift-dependencies" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphonesimulator/EmotionPlay.build/Objects-normal/arm64/SpotifyAuthManager+Providing.swiftdeps",
-    "swiftmodule" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphonesimulator/EmotionPlay.build/Objects-normal/arm64/SpotifyAuthManager+Providing~partial.swiftmodule"
+  "/Users/wongwilson/Downloads/EmotionPlay/EmotionPlay/Services/DirectCoreMLInfencer.swift" : {
+    "const-values" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphonesimulator/EmotionPlay.build/Objects-normal/arm64/DirectCoreMLInfencer.swiftconstvalues",
+    "dependencies" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphonesimulator/EmotionPlay.build/Objects-normal/arm64/DirectCoreMLInfencer.d",
+    "diagnostics" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphonesimulator/EmotionPlay.build/Objects-normal/arm64/DirectCoreMLInfencer.dia",
+    "index-unit-output-path" : "/EmotionPlay.build/Debug-iphonesimulator/EmotionPlay.build/Objects-normal/arm64/DirectCoreMLInfencer.o",
+    "llvm-bc" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphonesimulator/EmotionPlay.build/Objects-normal/arm64/DirectCoreMLInfencer.bc",
+    "object" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphonesimulator/EmotionPlay.build/Objects-normal/arm64/DirectCoreMLInfencer.o",
+    "swift-dependencies" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphonesimulator/EmotionPlay.build/Objects-normal/arm64/DirectCoreMLInfencer.swiftdeps",
+    "swiftmodule" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphonesimulator/EmotionPlay.build/Objects-normal/arm64/DirectCoreMLInfencer~partial.swiftmodule"
+  },
+  "/Users/wongwilson/Downloads/EmotionPlay/EmotionPlay/Services/MoodToPlaylistService.swift" : {
+    "const-values" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphonesimulator/EmotionPlay.build/Objects-normal/arm64/MoodToPlaylistService.swiftconstvalues",
+    "dependencies" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphonesimulator/EmotionPlay.build/Objects-normal/arm64/MoodToPlaylistService.d",
+    "diagnostics" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphonesimulator/EmotionPlay.build/Objects-normal/arm64/MoodToPlaylistService.dia",
+    "index-unit-output-path" : "/EmotionPlay.build/Debug-iphonesimulator/EmotionPlay.build/Objects-normal/arm64/MoodToPlaylistService.o",
+    "llvm-bc" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphonesimulator/EmotionPlay.build/Objects-normal/arm64/MoodToPlaylistService.bc",
+    "object" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphonesimulator/EmotionPlay.build/Objects-normal/arm64/MoodToPlaylistService.o",
+    "swift-dependencies" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphonesimulator/EmotionPlay.build/Objects-normal/arm64/MoodToPlaylistService.swiftdeps",
+    "swiftmodule" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphonesimulator/EmotionPlay.build/Objects-normal/arm64/MoodToPlaylistService~partial.swiftmodule"
   },
   "/Users/wongwilson/Downloads/EmotionPlay/EmotionPlay/Services/PKCE.swift" : {
     "const-values" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphonesimulator/EmotionPlay.build/Objects-normal/arm64/PKCE.swiftconstvalues",
@@ -145,6 +165,16 @@
     "object" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphonesimulator/EmotionPlay.build/Objects-normal/arm64/PKCE.o",
     "swift-dependencies" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphonesimulator/EmotionPlay.build/Objects-normal/arm64/PKCE.swiftdeps",
     "swiftmodule" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphonesimulator/EmotionPlay.build/Objects-normal/arm64/PKCE~partial.swiftmodule"
+  },
+  "/Users/wongwilson/Downloads/EmotionPlay/EmotionPlay/Services/ReccoBeatsClient.swift" : {
+    "const-values" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphonesimulator/EmotionPlay.build/Objects-normal/arm64/ReccoBeatsClient.swiftconstvalues",
+    "dependencies" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphonesimulator/EmotionPlay.build/Objects-normal/arm64/ReccoBeatsClient.d",
+    "diagnostics" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphonesimulator/EmotionPlay.build/Objects-normal/arm64/ReccoBeatsClient.dia",
+    "index-unit-output-path" : "/EmotionPlay.build/Debug-iphonesimulator/EmotionPlay.build/Objects-normal/arm64/ReccoBeatsClient.o",
+    "llvm-bc" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphonesimulator/EmotionPlay.build/Objects-normal/arm64/ReccoBeatsClient.bc",
+    "object" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphonesimulator/EmotionPlay.build/Objects-normal/arm64/ReccoBeatsClient.o",
+    "swift-dependencies" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphonesimulator/EmotionPlay.build/Objects-normal/arm64/ReccoBeatsClient.swiftdeps",
+    "swiftmodule" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphonesimulator/EmotionPlay.build/Objects-normal/arm64/ReccoBeatsClient~partial.swiftmodule"
   },
   "/Users/wongwilson/Downloads/EmotionPlay/EmotionPlay/Services/RemoteMoodInferencer.swift" : {
     "const-values" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphonesimulator/EmotionPlay.build/Objects-normal/arm64/RemoteMoodInferencer.swiftconstvalues",
@@ -176,6 +206,16 @@
     "swift-dependencies" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphonesimulator/EmotionPlay.build/Objects-normal/arm64/SpotifyAuthManager.swiftdeps",
     "swiftmodule" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphonesimulator/EmotionPlay.build/Objects-normal/arm64/SpotifyAuthManager~partial.swiftmodule"
   },
+  "/Users/wongwilson/Downloads/EmotionPlay/EmotionPlay/Services/SpotifyPlaylistService.swift" : {
+    "const-values" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphonesimulator/EmotionPlay.build/Objects-normal/arm64/SpotifyPlaylistService.swiftconstvalues",
+    "dependencies" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphonesimulator/EmotionPlay.build/Objects-normal/arm64/SpotifyPlaylistService.d",
+    "diagnostics" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphonesimulator/EmotionPlay.build/Objects-normal/arm64/SpotifyPlaylistService.dia",
+    "index-unit-output-path" : "/EmotionPlay.build/Debug-iphonesimulator/EmotionPlay.build/Objects-normal/arm64/SpotifyPlaylistService.o",
+    "llvm-bc" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphonesimulator/EmotionPlay.build/Objects-normal/arm64/SpotifyPlaylistService.bc",
+    "object" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphonesimulator/EmotionPlay.build/Objects-normal/arm64/SpotifyPlaylistService.o",
+    "swift-dependencies" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphonesimulator/EmotionPlay.build/Objects-normal/arm64/SpotifyPlaylistService.swiftdeps",
+    "swiftmodule" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphonesimulator/EmotionPlay.build/Objects-normal/arm64/SpotifyPlaylistService~partial.swiftmodule"
+  },
   "/Users/wongwilson/Downloads/EmotionPlay/EmotionPlay/Store/HistoryStore.swift" : {
     "const-values" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphonesimulator/EmotionPlay.build/Objects-normal/arm64/HistoryStore.swiftconstvalues",
     "dependencies" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphonesimulator/EmotionPlay.build/Objects-normal/arm64/HistoryStore.d",
@@ -206,6 +246,16 @@
     "swift-dependencies" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphonesimulator/EmotionPlay.build/Objects-normal/arm64/AppTheme.swiftdeps",
     "swiftmodule" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphonesimulator/EmotionPlay.build/Objects-normal/arm64/AppTheme~partial.swiftmodule"
   },
+  "/Users/wongwilson/Downloads/EmotionPlay/EmotionPlay/Utilities/Color+Hex.swift" : {
+    "const-values" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphonesimulator/EmotionPlay.build/Objects-normal/arm64/Color+Hex.swiftconstvalues",
+    "dependencies" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphonesimulator/EmotionPlay.build/Objects-normal/arm64/Color+Hex.d",
+    "diagnostics" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphonesimulator/EmotionPlay.build/Objects-normal/arm64/Color+Hex.dia",
+    "index-unit-output-path" : "/EmotionPlay.build/Debug-iphonesimulator/EmotionPlay.build/Objects-normal/arm64/Color+Hex.o",
+    "llvm-bc" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphonesimulator/EmotionPlay.build/Objects-normal/arm64/Color+Hex.bc",
+    "object" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphonesimulator/EmotionPlay.build/Objects-normal/arm64/Color+Hex.o",
+    "swift-dependencies" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphonesimulator/EmotionPlay.build/Objects-normal/arm64/Color+Hex.swiftdeps",
+    "swiftmodule" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphonesimulator/EmotionPlay.build/Objects-normal/arm64/Color+Hex~partial.swiftmodule"
+  },
   "/Users/wongwilson/Downloads/EmotionPlay/EmotionPlay/Utilities/DateFormatter+Playlist.swift" : {
     "const-values" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphonesimulator/EmotionPlay.build/Objects-normal/arm64/DateFormatter+Playlist.swiftconstvalues",
     "dependencies" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphonesimulator/EmotionPlay.build/Objects-normal/arm64/DateFormatter+Playlist.d",
@@ -215,6 +265,16 @@
     "object" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphonesimulator/EmotionPlay.build/Objects-normal/arm64/DateFormatter+Playlist.o",
     "swift-dependencies" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphonesimulator/EmotionPlay.build/Objects-normal/arm64/DateFormatter+Playlist.swiftdeps",
     "swiftmodule" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphonesimulator/EmotionPlay.build/Objects-normal/arm64/DateFormatter+Playlist~partial.swiftmodule"
+  },
+  "/Users/wongwilson/Downloads/EmotionPlay/EmotionPlay/Utilities/FaceDetectionHelper.swift" : {
+    "const-values" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphonesimulator/EmotionPlay.build/Objects-normal/arm64/FaceDetectionHelper.swiftconstvalues",
+    "dependencies" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphonesimulator/EmotionPlay.build/Objects-normal/arm64/FaceDetectionHelper.d",
+    "diagnostics" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphonesimulator/EmotionPlay.build/Objects-normal/arm64/FaceDetectionHelper.dia",
+    "index-unit-output-path" : "/EmotionPlay.build/Debug-iphonesimulator/EmotionPlay.build/Objects-normal/arm64/FaceDetectionHelper.o",
+    "llvm-bc" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphonesimulator/EmotionPlay.build/Objects-normal/arm64/FaceDetectionHelper.bc",
+    "object" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphonesimulator/EmotionPlay.build/Objects-normal/arm64/FaceDetectionHelper.o",
+    "swift-dependencies" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphonesimulator/EmotionPlay.build/Objects-normal/arm64/FaceDetectionHelper.swiftdeps",
+    "swiftmodule" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphonesimulator/EmotionPlay.build/Objects-normal/arm64/FaceDetectionHelper~partial.swiftmodule"
   },
   "/Users/wongwilson/Downloads/EmotionPlay/EmotionPlay/Utilities/FeatureMapping.swift" : {
     "const-values" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphonesimulator/EmotionPlay.build/Objects-normal/arm64/FeatureMapping.swiftconstvalues",
@@ -256,6 +316,16 @@
     "swift-dependencies" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphonesimulator/EmotionPlay.build/Objects-normal/arm64/ContentView.swiftdeps",
     "swiftmodule" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphonesimulator/EmotionPlay.build/Objects-normal/arm64/ContentView~partial.swiftmodule"
   },
+  "/Users/wongwilson/Downloads/EmotionPlay/EmotionPlay/Views/ErrorAlertView.swift" : {
+    "const-values" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphonesimulator/EmotionPlay.build/Objects-normal/arm64/ErrorAlertView.swiftconstvalues",
+    "dependencies" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphonesimulator/EmotionPlay.build/Objects-normal/arm64/ErrorAlertView.d",
+    "diagnostics" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphonesimulator/EmotionPlay.build/Objects-normal/arm64/ErrorAlertView.dia",
+    "index-unit-output-path" : "/EmotionPlay.build/Debug-iphonesimulator/EmotionPlay.build/Objects-normal/arm64/ErrorAlertView.o",
+    "llvm-bc" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphonesimulator/EmotionPlay.build/Objects-normal/arm64/ErrorAlertView.bc",
+    "object" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphonesimulator/EmotionPlay.build/Objects-normal/arm64/ErrorAlertView.o",
+    "swift-dependencies" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphonesimulator/EmotionPlay.build/Objects-normal/arm64/ErrorAlertView.swiftdeps",
+    "swiftmodule" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphonesimulator/EmotionPlay.build/Objects-normal/arm64/ErrorAlertView~partial.swiftmodule"
+  },
   "/Users/wongwilson/Downloads/EmotionPlay/EmotionPlay/Views/HistoryView.swift" : {
     "const-values" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphonesimulator/EmotionPlay.build/Objects-normal/arm64/HistoryView.swiftconstvalues",
     "dependencies" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphonesimulator/EmotionPlay.build/Objects-normal/arm64/HistoryView.d",
@@ -276,6 +346,16 @@
     "swift-dependencies" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphonesimulator/EmotionPlay.build/Objects-normal/arm64/HomeView.swiftdeps",
     "swiftmodule" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphonesimulator/EmotionPlay.build/Objects-normal/arm64/HomeView~partial.swiftmodule"
   },
+  "/Users/wongwilson/Downloads/EmotionPlay/EmotionPlay/Views/PlaylistResultSheet.swift" : {
+    "const-values" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphonesimulator/EmotionPlay.build/Objects-normal/arm64/PlaylistResultSheet.swiftconstvalues",
+    "dependencies" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphonesimulator/EmotionPlay.build/Objects-normal/arm64/PlaylistResultSheet.d",
+    "diagnostics" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphonesimulator/EmotionPlay.build/Objects-normal/arm64/PlaylistResultSheet.dia",
+    "index-unit-output-path" : "/EmotionPlay.build/Debug-iphonesimulator/EmotionPlay.build/Objects-normal/arm64/PlaylistResultSheet.o",
+    "llvm-bc" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphonesimulator/EmotionPlay.build/Objects-normal/arm64/PlaylistResultSheet.bc",
+    "object" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphonesimulator/EmotionPlay.build/Objects-normal/arm64/PlaylistResultSheet.o",
+    "swift-dependencies" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphonesimulator/EmotionPlay.build/Objects-normal/arm64/PlaylistResultSheet.swiftdeps",
+    "swiftmodule" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphonesimulator/EmotionPlay.build/Objects-normal/arm64/PlaylistResultSheet~partial.swiftmodule"
+  },
   "/Users/wongwilson/Downloads/EmotionPlay/EmotionPlay/Views/ProfileView.swift" : {
     "const-values" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphonesimulator/EmotionPlay.build/Objects-normal/arm64/ProfileView.swiftconstvalues",
     "dependencies" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphonesimulator/EmotionPlay.build/Objects-normal/arm64/ProfileView.d",
@@ -285,6 +365,26 @@
     "object" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphonesimulator/EmotionPlay.build/Objects-normal/arm64/ProfileView.o",
     "swift-dependencies" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphonesimulator/EmotionPlay.build/Objects-normal/arm64/ProfileView.swiftdeps",
     "swiftmodule" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphonesimulator/EmotionPlay.build/Objects-normal/arm64/ProfileView~partial.swiftmodule"
+  },
+  "/Users/wongwilson/Downloads/EmotionPlay/EmotionPlay/Views/SharePlaylistView.swift" : {
+    "const-values" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphonesimulator/EmotionPlay.build/Objects-normal/arm64/SharePlaylistView.swiftconstvalues",
+    "dependencies" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphonesimulator/EmotionPlay.build/Objects-normal/arm64/SharePlaylistView.d",
+    "diagnostics" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphonesimulator/EmotionPlay.build/Objects-normal/arm64/SharePlaylistView.dia",
+    "index-unit-output-path" : "/EmotionPlay.build/Debug-iphonesimulator/EmotionPlay.build/Objects-normal/arm64/SharePlaylistView.o",
+    "llvm-bc" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphonesimulator/EmotionPlay.build/Objects-normal/arm64/SharePlaylistView.bc",
+    "object" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphonesimulator/EmotionPlay.build/Objects-normal/arm64/SharePlaylistView.o",
+    "swift-dependencies" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphonesimulator/EmotionPlay.build/Objects-normal/arm64/SharePlaylistView.swiftdeps",
+    "swiftmodule" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphonesimulator/EmotionPlay.build/Objects-normal/arm64/SharePlaylistView~partial.swiftmodule"
+  },
+  "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphonesimulator/EmotionPlay.build/DerivedSources/CoreMLGenerated/EmotiPlayFinal/EmotiPlayFinal.swift" : {
+    "const-values" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphonesimulator/EmotionPlay.build/Objects-normal/arm64/EmotiPlayFinal.swiftconstvalues",
+    "dependencies" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphonesimulator/EmotionPlay.build/Objects-normal/arm64/EmotiPlayFinal.d",
+    "diagnostics" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphonesimulator/EmotionPlay.build/Objects-normal/arm64/EmotiPlayFinal.dia",
+    "index-unit-output-path" : "/EmotionPlay.build/Debug-iphonesimulator/EmotionPlay.build/Objects-normal/arm64/EmotiPlayFinal.o",
+    "llvm-bc" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphonesimulator/EmotionPlay.build/Objects-normal/arm64/EmotiPlayFinal.bc",
+    "object" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphonesimulator/EmotionPlay.build/Objects-normal/arm64/EmotiPlayFinal.o",
+    "swift-dependencies" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphonesimulator/EmotionPlay.build/Objects-normal/arm64/EmotiPlayFinal.swiftdeps",
+    "swiftmodule" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphonesimulator/EmotionPlay.build/Objects-normal/arm64/EmotiPlayFinal~partial.swiftmodule"
   },
   "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphonesimulator/EmotionPlay.build/DerivedSources/GeneratedAssetSymbols.swift" : {
     "const-values" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphonesimulator/EmotionPlay.build/Objects-normal/arm64/GeneratedAssetSymbols.swiftconstvalues",

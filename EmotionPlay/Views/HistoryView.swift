@@ -2,7 +2,7 @@
 //  HistoryView.swift
 //  EmotionPlay
 //
-//  Created by Kartikay Singh on 4/10/2025.
+//  Updated with consistent background styling
 //
 
 import SwiftUI
@@ -15,84 +15,182 @@ struct HistoryView: View {
 
   var body: some View {
     NavigationStack {
-      List {
-        ForEach(store.items) { item in
-          HistoryRow(item: item)
-            .listRowBackground(Color.appSurfaceDark)
-            .contextMenu {
-              Button("Rename") {
-                renamingItem = item
-                renameText = item.title
-              }
+      ZStack {
+        // Consistent background with HomeView
+        Color.AppBackground.ignoresSafeArea()
+        
+        if store.items.isEmpty {
+          // Empty state
+          VStack(spacing: 20) {
+            Image(systemName: "music.note.list")
+              .font(.system(size: 60))
+              .foregroundColor(.gray.opacity(0.5))
+            
+            Text("No Playlists Yet")
+              .font(.title2.bold())
+              .foregroundColor(.white)
+            
+            Text("Create your first mood-based playlist on the Home tab")
+              .font(.subheadline)
+              .foregroundColor(.gray)
+              .multilineTextAlignment(.center)
+              .padding(.horizontal, 40)
+          }
+        } else {
+          List {
+            ForEach(store.items) { item in
+              HistoryRow(item: item)
+                .listRowBackground(Color.cardBackground)
+                .listRowSeparatorTint(Color.gray.opacity(0.3))
+                .contextMenu {
+                  Button("Rename") {
+                    renamingItem = item
+                    renameText = item.title
+                  }
+                }
             }
+            .onDelete(perform: store.delete)
+          }
+          .scrollContentBackground(.hidden)
+          .listStyle(.plain)
         }
-        .onDelete(perform: store.delete)
       }
-      .scrollContentBackground(.hidden)
-      .background(Color.appBackground)
-      .navigationTitle("Your History")
-      .toolbar { EditButton() }
+      .navigationTitle("Your Playlists")
+      .toolbar {
+        if !store.items.isEmpty {
+          EditButton()
+            .foregroundColor(.AppGreenAccent)
+        }
+      }
       .sheet(item: $renamingItem) { item in
-        RenameSheet(title: $renameText,
-                    onCancel: { renamingItem = nil },
-                    onSave: {
-                      store.rename(id: item.id, to: renameText.trimmingCharacters(in: .whitespacesAndNewlines))
-                      renamingItem = nil
-                    })
+        RenameSheet(
+          title: $renameText,
+          onCancel: { renamingItem = nil },
+          onSave: {
+            store.rename(id: item.id, to: renameText.trimmingCharacters(in: .whitespacesAndNewlines))
+            renamingItem = nil
+          }
+        )
       }
     }
   }
 }
-
-// MARK: - Row
 
 private struct HistoryRow: View {
-  let item: HistoryItem
+    let item: HistoryItem
+    @State private var showShareSheet = false
 
-  var body: some View {
-    HStack(spacing: 12) {
-      if let img = item.uiImage {
-        Image(uiImage: img)
-          .resizable().scaledToFill()
-          .frame(width: 54, height: 54)
-          .clipShape(RoundedRectangle(cornerRadius: 12))
-      } else {
-        RoundedRectangle(cornerRadius: 12)
-          .fill(LinearGradient(colors: [.purple, .cyan],
-                               startPoint: .topLeading, endPoint: .bottomTrailing))
-          .frame(width: 54, height: 54)
-      }
+    var body: some View {
+      HStack(spacing: 16) {
+        // Thumbnail
+        if let img = item.uiImage {
+          Image(uiImage: img)
+            .resizable()
+            .scaledToFill()
+            .frame(width: 64, height: 64)
+            .clipShape(RoundedRectangle(cornerRadius: 14, style: .continuous))
+            .overlay(
+              RoundedRectangle(cornerRadius: 14, style: .continuous)
+                .stroke(Color.gray.opacity(0.3), lineWidth: 1)
+            )
+        } else {
+          RoundedRectangle(cornerRadius: 14, style: .continuous)
+            .fill(
+              LinearGradient(
+                colors: [Color.AppGreenAccent.opacity(0.6), Color.AppGreen3.opacity(0.6)],
+                startPoint: .topLeading,
+                endPoint: .bottomTrailing
+              )
+            )
+            .frame(width: 64, height: 64)
+            .overlay(
+              Image(systemName: "music.note")
+                .font(.title2)
+                .foregroundColor(.white)
+            )
+        }
 
-      VStack(alignment: .leading, spacing: 4) {
-        Text(item.date.formatted(date: .abbreviated, time: .shortened))
-          .font(.caption)
-          .foregroundStyle(.secondary)
+        // Info
+        VStack(alignment: .leading, spacing: 6) {
+          // Date
+          Text(item.date.formatted(date: .abbreviated, time: .shortened))
+            .font(.caption)
+            .foregroundColor(.gray)
 
-          Text(
-            item.title.isEmpty
-              ? "\(item.mood.rawValue.capitalized)\(item.confidence.map { " \(Int($0 * 100))%" } ?? "")"
-              : item.title
-          )
-          .font(.headline)
-          .foregroundStyle(Color.appGreenAccent)
+          // Mood + Confidence
+          HStack(spacing: 6) {
+            Text(moodEmoji(item.mood))
+              .font(.body)
+            
+            Text(item.mood.rawValue.capitalized)
+              .font(.headline)
+              .foregroundColor(.white)
+            
+            if let conf = item.confidence {
+              Text("\(Int(conf * 100))%")
+                .font(.caption)
+                .foregroundColor(.AppGreenAccent)
+                .padding(.horizontal, 6)
+                .padding(.vertical, 2)
+                .background(Color.AppGreenAccent.opacity(0.2))
+                .cornerRadius(6)
+            }
+          }
           
+          // Playlist name
           Text(item.playlistName)
             .font(.subheadline)
-            .foregroundStyle(.white.opacity(0.85))
+            .foregroundColor(.white.opacity(0.7))
+            .lineLimit(1)
+        }
 
-          Spacer()
-      }
+        Spacer()
 
-      Spacer()
-
-        if let url = item.playlistURL {
-          Link(destination: url) {
-            Image(systemName: "play.circle.fill").font(.title2)
+        // Action buttons
+        HStack(spacing: 12) {
+          // Share button
+          Button(action: {
+            showShareSheet = true
+          }) {
+            Image(systemName: "square.and.arrow.up")
+              .font(.system(size: 22))
+              .foregroundColor(.white.opacity(0.7))
+              .frame(width: 44, height: 44)
+              .background(Color.secondaryCard)
+              .clipShape(Circle())
+          }
+          .buttonStyle(.plain)
+          .sheet(isPresented: $showShareSheet) {
+            SharePlaylistView(item: item)
+          }
+          
+          // Play button
+          if let url = item.playlistURL {
+            Link(destination: url) {
+              Image(systemName: "play.circle.fill")
+                .font(.system(size: 32))
+                .foregroundColor(.AppGreenAccent)
+            }
           }
         }
+      }
+      .padding(.vertical, 8)
+    }
+    
+    private func moodEmoji(_ mood: Mood) -> String {
+      switch mood {
+      case .happy: return "😊"
+      case .sad: return "😢"
+      case .calm: return "😌"
+      case .energetic: return "⚡️"
+      case .angry: return "😠"
+      case .anxious: return "😰"
+      case .melancholic: return "😔"
+      case .focused: return "🎯"
+      case .nostalgic: return "🌅"
+      }
     }
   }
-}
 
 // MARK: - Rename Sheet
 
@@ -100,22 +198,43 @@ private struct RenameSheet: View {
   @Binding var title: String
   let onCancel: () -> Void
   let onSave: () -> Void
+  @Environment(\.dismiss) private var dismiss
 
   var body: some View {
     NavigationStack {
-      Form {
-        Section("Session Title") {
-          TextField("e.g. Morning Boost, Exam Stress Mix", text: $title)
+      ZStack {
+        Color.AppBackground.ignoresSafeArea()
+        
+        Form {
+          Section {
+            TextField("e.g. Morning Boost, Exam Stress Mix", text: $title)
+              .textFieldStyle(.plain)
+              .foregroundColor(.white)
+          } header: {
+            Text("Session Title")
+              .foregroundColor(.gray)
+          }
+          .listRowBackground(Color.cardBackground)
         }
+        .scrollContentBackground(.hidden)
       }
       .navigationTitle("Rename")
+      .navigationBarTitleDisplayMode(.inline)
       .toolbar {
         ToolbarItem(placement: .cancellationAction) {
-          Button("Cancel", action: onCancel)
+          Button("Cancel") {
+            dismiss()
+            onCancel()
+          }
+          .foregroundColor(.gray)
         }
         ToolbarItem(placement: .confirmationAction) {
-          Button("Save", action: onSave)
-            .disabled(title.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty)
+          Button("Save") {
+            dismiss()
+            onSave()
+          }
+          .foregroundColor(.AppGreenAccent)
+          .disabled(title.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty)
         }
       }
     }

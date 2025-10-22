@@ -1,0 +1,30 @@
+{
+  "/Users/wongwilson/Downloads/EmotionPlay/EmotionPlay/EmotionPlayApp.swift" : {
+    "const-values" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphonesimulator/EmotionPlay.build/Objects-normal/arm64/EmotionPlayApp.swiftconstvalues",
+    "dependencies" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphonesimulator/EmotionPlay.build/Objects-normal/arm64/EmotionPlayApp.d",
+    "diagnostics" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphonesimulator/EmotionPlay.build/Objects-normal/arm64/EmotionPlayApp.dia",
+    "object" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphonesimulator/EmotionPlay.build/Objects-normal/arm64/EmotionPlayApp.o",
+    "swift-dependencies" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphonesimulator/EmotionPlay.build/Objects-normal/arm64/EmotionPlayApp.swiftdeps"
+  },
+  "/Users/wongwilson/Downloads/EmotionPlay/EmotionPlay/Views/ProfileView.swift" : {
+    "const-values" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphonesimulator/EmotionPlay.build/Objects-normal/arm64/ProfileView.swiftconstvalues",
+    "dependencies" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphonesimulator/EmotionPlay.build/Objects-normal/arm64/ProfileView.d",
+    "diagnostics" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphonesimulator/EmotionPlay.build/Objects-normal/arm64/ProfileView.dia",
+    "object" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphonesimulator/EmotionPlay.build/Objects-normal/arm64/ProfileView.o",
+    "swift-dependencies" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphonesimulator/EmotionPlay.build/Objects-normal/arm64/ProfileView.swiftdeps"
+  },
+  "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphonesimulator/EmotionPlay.build/DerivedSources/CoreMLGenerated/EmotiPlayFinal/EmotiPlayFinal.swift" : {
+    "const-values" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphonesimulator/EmotionPlay.build/Objects-normal/arm64/EmotiPlayFinal.swiftconstvalues",
+    "dependencies" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphonesimulator/EmotionPlay.build/Objects-normal/arm64/EmotiPlayFinal.d",
+    "diagnostics" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphonesimulator/EmotionPlay.build/Objects-normal/arm64/EmotiPlayFinal.dia",
+    "object" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphonesimulator/EmotionPlay.build/Objects-normal/arm64/EmotiPlayFinal.o",
+    "swift-dependencies" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphonesimulator/EmotionPlay.build/Objects-normal/arm64/EmotiPlayFinal.swiftdeps"
+  },
+  "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphonesimulator/EmotionPlay.build/DerivedSources/GeneratedAssetSymbols.swift" : {
+    "const-values" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphonesimulator/EmotionPlay.build/Objects-normal/arm64/GeneratedAssetSymbols.swiftconstvalues",
+    "dependencies" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphonesimulator/EmotionPlay.build/Objects-normal/arm64/GeneratedAssetSymbols.d",
+    "diagnostics" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphonesimulator/EmotionPlay.build/Objects-normal/arm64/GeneratedAssetSymbols.dia",
+    "object" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphonesimulator/EmotionPlay.build/Objects-normal/arm64/GeneratedAssetSymbols.o",
+    "swift-dependencies" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphonesimulator/EmotionPlay.build/Objects-normal/arm64/GeneratedAssetSymbols.swiftdeps"
+  }
+}

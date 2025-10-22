@@ -1,0 +1,37 @@
+{
+  "/Users/wongwilson/Downloads/EmotionPlay/EmotionPlay/Models/HistoryItem.swift" : {
+    "const-values" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphoneos/EmotionPlay.build/Objects-normal/arm64/HistoryItem.swiftconstvalues",
+    "dependencies" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphoneos/EmotionPlay.build/Objects-normal/arm64/HistoryItem.d",
+    "diagnostics" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphoneos/EmotionPlay.build/Objects-normal/arm64/HistoryItem.dia",
+    "object" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphoneos/EmotionPlay.build/Objects-normal/arm64/HistoryItem.o",
+    "swift-dependencies" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphoneos/EmotionPlay.build/Objects-normal/arm64/HistoryItem.swiftdeps"
+  },
+  "/Users/wongwilson/Downloads/EmotionPlay/EmotionPlay/Models/Mood.swift" : {
+    "const-values" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphoneos/EmotionPlay.build/Objects-normal/arm64/Mood.swiftconstvalues",
+    "dependencies" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphoneos/EmotionPlay.build/Objects-normal/arm64/Mood.d",
+    "diagnostics" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphoneos/EmotionPlay.build/Objects-normal/arm64/Mood.dia",
+    "object" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphoneos/EmotionPlay.build/Objects-normal/arm64/Mood.o",
+    "swift-dependencies" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphoneos/EmotionPlay.build/Objects-normal/arm64/Mood.swiftdeps"
+  },
+  "/Users/wongwilson/Downloads/EmotionPlay/EmotionPlay/Models/MoodEntry.swift" : {
+    "const-values" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphoneos/EmotionPlay.build/Objects-normal/arm64/MoodEntry.swiftconstvalues",
+    "dependencies" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphoneos/EmotionPlay.build/Objects-normal/arm64/MoodEntry.d",
+    "diagnostics" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphoneos/EmotionPlay.build/Objects-normal/arm64/MoodEntry.dia",
+    "object" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphoneos/EmotionPlay.build/Objects-normal/arm64/MoodEntry.o",
+    "swift-dependencies" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphoneos/EmotionPlay.build/Objects-normal/arm64/MoodEntry.swiftdeps"
+  },
+  "/Users/wongwilson/Downloads/EmotionPlay/EmotionPlay/Utilities/FaceDetectionHelper.swift" : {
+    "const-values" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphoneos/EmotionPlay.build/Objects-normal/arm64/FaceDetectionHelper.swiftconstvalues",
+    "dependencies" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphoneos/EmotionPlay.build/Objects-normal/arm64/FaceDetectionHelper.d",
+    "diagnostics" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphoneos/EmotionPlay.build/Objects-normal/arm64/FaceDetectionHelper.dia",
+    "object" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphoneos/EmotionPlay.build/Objects-normal/arm64/FaceDetectionHelper.o",
+    "swift-dependencies" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphoneos/EmotionPlay.build/Objects-normal/arm64/FaceDetectionHelper.swiftdeps"
+  },
+  "/Users/wongwilson/Downloads/EmotionPlay/EmotionPlay/Views/ErrorAlertView.swift" : {
+    "const-values" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphoneos/EmotionPlay.build/Objects-normal/arm64/ErrorAlertView.swiftconstvalues",
+    "dependencies" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphoneos/EmotionPlay.build/Objects-normal/arm64/ErrorAlertView.d",
+    "diagnostics" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphoneos/EmotionPlay.build/Objects-normal/arm64/ErrorAlertView.dia",
+    "object" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphoneos/EmotionPlay.build/Objects-normal/arm64/ErrorAlertView.o",
+    "swift-dependencies" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphoneos/EmotionPlay.build/Objects-normal/arm64/ErrorAlertView.swiftdeps"
+  }
+}

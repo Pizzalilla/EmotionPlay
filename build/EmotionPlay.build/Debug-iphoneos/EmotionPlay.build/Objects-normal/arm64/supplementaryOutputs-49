@@ -1,0 +1,37 @@
+{
+  "/Users/wongwilson/Downloads/EmotionPlay/EmotionPlay/Protocols/MusicProviderClient.swift" : {
+    "const-values" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphoneos/EmotionPlay.build/Objects-normal/arm64/MusicProviderClient.swiftconstvalues",
+    "dependencies" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphoneos/EmotionPlay.build/Objects-normal/arm64/MusicProviderClient.d",
+    "diagnostics" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphoneos/EmotionPlay.build/Objects-normal/arm64/MusicProviderClient.dia",
+    "object" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphoneos/EmotionPlay.build/Objects-normal/arm64/MusicProviderClient.o",
+    "swift-dependencies" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphoneos/EmotionPlay.build/Objects-normal/arm64/MusicProviderClient.swiftdeps"
+  },
+  "/Users/wongwilson/Downloads/EmotionPlay/EmotionPlay/Protocols/PlaylistCreator.swift" : {
+    "const-values" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphoneos/EmotionPlay.build/Objects-normal/arm64/PlaylistCreator.swiftconstvalues",
+    "dependencies" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphoneos/EmotionPlay.build/Objects-normal/arm64/PlaylistCreator.d",
+    "diagnostics" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphoneos/EmotionPlay.build/Objects-normal/arm64/PlaylistCreator.dia",
+    "object" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphoneos/EmotionPlay.build/Objects-normal/arm64/PlaylistCreator.o",
+    "swift-dependencies" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphoneos/EmotionPlay.build/Objects-normal/arm64/PlaylistCreator.swiftdeps"
+  },
+  "/Users/wongwilson/Downloads/EmotionPlay/EmotionPlay/Protocols/Recommender.swift" : {
+    "const-values" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphoneos/EmotionPlay.build/Objects-normal/arm64/Recommender.swiftconstvalues",
+    "dependencies" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphoneos/EmotionPlay.build/Objects-normal/arm64/Recommender.d",
+    "diagnostics" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphoneos/EmotionPlay.build/Objects-normal/arm64/Recommender.dia",
+    "object" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphoneos/EmotionPlay.build/Objects-normal/arm64/Recommender.o",
+    "swift-dependencies" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphoneos/EmotionPlay.build/Objects-normal/arm64/Recommender.swiftdeps"
+  },
+  "/Users/wongwilson/Downloads/EmotionPlay/EmotionPlay/Services/DirectCoreMLInfencer.swift" : {
+    "const-values" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphoneos/EmotionPlay.build/Objects-normal/arm64/DirectCoreMLInfencer.swiftconstvalues",
+    "dependencies" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphoneos/EmotionPlay.build/Objects-normal/arm64/DirectCoreMLInfencer.d",
+    "diagnostics" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphoneos/EmotionPlay.build/Objects-normal/arm64/DirectCoreMLInfencer.dia",
+    "object" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphoneos/EmotionPlay.build/Objects-normal/arm64/DirectCoreMLInfencer.o",
+    "swift-dependencies" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphoneos/EmotionPlay.build/Objects-normal/arm64/DirectCoreMLInfencer.swiftdeps"
+  },
+  "/Users/wongwilson/Downloads/EmotionPlay/EmotionPlay/Services/MoodToPlaylistService.swift" : {
+    "const-values" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphoneos/EmotionPlay.build/Objects-normal/arm64/MoodToPlaylistService.swiftconstvalues",
+    "dependencies" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphoneos/EmotionPlay.build/Objects-normal/arm64/MoodToPlaylistService.d",
+    "diagnostics" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphoneos/EmotionPlay.build/Objects-normal/arm64/MoodToPlaylistService.dia",
+    "object" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphoneos/EmotionPlay.build/Objects-normal/arm64/MoodToPlaylistService.o",
+    "swift-dependencies" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphoneos/EmotionPlay.build/Objects-normal/arm64/MoodToPlaylistService.swiftdeps"
+  }
+}

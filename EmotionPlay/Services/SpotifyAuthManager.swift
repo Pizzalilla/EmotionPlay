@@ -8,10 +8,12 @@ final class SpotifyAuthManager: NSObject, ObservableObject {
   private let clientId: String = "9aeb9fc2240446de9c56753250f1ef61"
   private let redirectURI: String = "emotionplay://callback"   // must match Info.plist URL scheme + Spotify dashboard
 
-  // Scopes needed for playlist creation
+  // Scopes needed for playlist creation and personalization
   private let scopes: String = [
     "playlist-modify-private",
-    "playlist-modify-public"
+    "playlist-modify-public",
+    "user-top-read",           // Get user's top artists and tracks for personalization
+    "user-read-email"          // Optional: get user email for better UX
   ].joined(separator: " ")
 
   // MARK: - Tokens
@@ -43,7 +45,7 @@ final class SpotifyAuthManager: NSObject, ObservableObject {
 
   /// Starts PKCE auth using ASWebAuthenticationSession
   @MainActor
-  func authorize(from viewController: UIViewController?) async throws {
+  func authorize(from viewController: UIViewController) async throws {
     let verifier  = PKCE.generateCodeVerifier()
     let challenge = PKCE.codeChallenge(from: verifier)
 

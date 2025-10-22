@@ -1,0 +1,39 @@
+{
+  "" : {
+    "diagnostics" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphonesimulator/EmotionPlayTests.build/Objects-normal/arm64/EmotionPlayTests-primary.dia",
+    "emit-module-dependencies" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphonesimulator/EmotionPlayTests.build/Objects-normal/arm64/EmotionPlayTests-primary-emit-module.d",
+    "emit-module-diagnostics" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphonesimulator/EmotionPlayTests.build/Objects-normal/arm64/EmotionPlayTests-primary-emit-module.dia",
+    "pch" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphonesimulator/EmotionPlayTests.build/Objects-normal/arm64/EmotionPlayTests-primary-Bridging-header.pch",
+    "swift-dependencies" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphonesimulator/EmotionPlayTests.build/Objects-normal/arm64/EmotionPlayTests-primary.swiftdeps"
+  },
+  "/Users/wongwilson/Downloads/EmotionPlay/EmotionPlayTests/EmotionPlayTests.swift" : {
+    "const-values" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphonesimulator/EmotionPlayTests.build/Objects-normal/arm64/EmotionPlayTests.swiftconstvalues",
+    "dependencies" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphonesimulator/EmotionPlayTests.build/Objects-normal/arm64/EmotionPlayTests.d",
+    "diagnostics" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphonesimulator/EmotionPlayTests.build/Objects-normal/arm64/EmotionPlayTests.dia",
+    "index-unit-output-path" : "/EmotionPlay.build/Debug-iphonesimulator/EmotionPlayTests.build/Objects-normal/arm64/EmotionPlayTests.o",
+    "llvm-bc" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphonesimulator/EmotionPlayTests.build/Objects-normal/arm64/EmotionPlayTests.bc",
+    "object" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphonesimulator/EmotionPlayTests.build/Objects-normal/arm64/EmotionPlayTests.o",
+    "swift-dependencies" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphonesimulator/EmotionPlayTests.build/Objects-normal/arm64/EmotionPlayTests.swiftdeps",
+    "swiftmodule" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphonesimulator/EmotionPlayTests.build/Objects-normal/arm64/EmotionPlayTests~partial.swiftmodule"
+  },
+  "/Users/wongwilson/Downloads/EmotionPlay/EmotionPlayTests/PhotoUploadAndMoodDetectionTests.swift" : {
+    "const-values" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphonesimulator/EmotionPlayTests.build/Objects-normal/arm64/PhotoUploadAndMoodDetectionTests.swiftconstvalues",
+    "dependencies" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphonesimulator/EmotionPlayTests.build/Objects-normal/arm64/PhotoUploadAndMoodDetectionTests.d",
+    "diagnostics" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphonesimulator/EmotionPlayTests.build/Objects-normal/arm64/PhotoUploadAndMoodDetectionTests.dia",
+    "index-unit-output-path" : "/EmotionPlay.build/Debug-iphonesimulator/EmotionPlayTests.build/Objects-normal/arm64/PhotoUploadAndMoodDetectionTests.o",
+    "llvm-bc" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphonesimulator/EmotionPlayTests.build/Objects-normal/arm64/PhotoUploadAndMoodDetectionTests.bc",
+    "object" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphonesimulator/EmotionPlayTests.build/Objects-normal/arm64/PhotoUploadAndMoodDetectionTests.o",
+    "swift-dependencies" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphonesimulator/EmotionPlayTests.build/Objects-normal/arm64/PhotoUploadAndMoodDetectionTests.swiftdeps",
+    "swiftmodule" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphonesimulator/EmotionPlayTests.build/Objects-normal/arm64/PhotoUploadAndMoodDetectionTests~partial.swiftmodule"
+  },
+  "/Users/wongwilson/Downloads/EmotionPlay/EmotionPlayTests/SpotifyAPIClientTests.swift" : {
+    "const-values" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphonesimulator/EmotionPlayTests.build/Objects-normal/arm64/SpotifyAPIClientTests.swiftconstvalues",
+    "dependencies" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphonesimulator/EmotionPlayTests.build/Objects-normal/arm64/SpotifyAPIClientTests.d",
+    "diagnostics" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphonesimulator/EmotionPlayTests.build/Objects-normal/arm64/SpotifyAPIClientTests.dia",
+    "index-unit-output-path" : "/EmotionPlay.build/Debug-iphonesimulator/EmotionPlayTests.build/Objects-normal/arm64/SpotifyAPIClientTests.o",
+    "llvm-bc" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphonesimulator/EmotionPlayTests.build/Objects-normal/arm64/SpotifyAPIClientTests.bc",
+    "object" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphonesimulator/EmotionPlayTests.build/Objects-normal/arm64/SpotifyAPIClientTests.o",
+    "swift-dependencies" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphonesimulator/EmotionPlayTests.build/Objects-normal/arm64/SpotifyAPIClientTests.swiftdeps",
+    "swiftmodule" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphonesimulator/EmotionPlayTests.build/Objects-normal/arm64/SpotifyAPIClientTests~partial.swiftmodule"
+  }
+}

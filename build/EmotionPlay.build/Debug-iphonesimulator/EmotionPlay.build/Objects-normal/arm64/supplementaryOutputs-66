@@ -1,0 +1,37 @@
+{
+  "/Users/wongwilson/Downloads/EmotionPlay/EmotionPlay/Services/DirectCoreMLInfencer.swift" : {
+    "const-values" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphonesimulator/EmotionPlay.build/Objects-normal/arm64/DirectCoreMLInfencer.swiftconstvalues",
+    "dependencies" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphonesimulator/EmotionPlay.build/Objects-normal/arm64/DirectCoreMLInfencer.d",
+    "diagnostics" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphonesimulator/EmotionPlay.build/Objects-normal/arm64/DirectCoreMLInfencer.dia",
+    "object" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphonesimulator/EmotionPlay.build/Objects-normal/arm64/DirectCoreMLInfencer.o",
+    "swift-dependencies" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphonesimulator/EmotionPlay.build/Objects-normal/arm64/DirectCoreMLInfencer.swiftdeps"
+  },
+  "/Users/wongwilson/Downloads/EmotionPlay/EmotionPlay/Services/MoodToPlaylistService.swift" : {
+    "const-values" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphonesimulator/EmotionPlay.build/Objects-normal/arm64/MoodToPlaylistService.swiftconstvalues",
+    "dependencies" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphonesimulator/EmotionPlay.build/Objects-normal/arm64/MoodToPlaylistService.d",
+    "diagnostics" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphonesimulator/EmotionPlay.build/Objects-normal/arm64/MoodToPlaylistService.dia",
+    "object" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphonesimulator/EmotionPlay.build/Objects-normal/arm64/MoodToPlaylistService.o",
+    "swift-dependencies" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphonesimulator/EmotionPlay.build/Objects-normal/arm64/MoodToPlaylistService.swiftdeps"
+  },
+  "/Users/wongwilson/Downloads/EmotionPlay/EmotionPlay/Services/PKCE.swift" : {
+    "const-values" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphonesimulator/EmotionPlay.build/Objects-normal/arm64/PKCE.swiftconstvalues",
+    "dependencies" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphonesimulator/EmotionPlay.build/Objects-normal/arm64/PKCE.d",
+    "diagnostics" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphonesimulator/EmotionPlay.build/Objects-normal/arm64/PKCE.dia",
+    "object" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphonesimulator/EmotionPlay.build/Objects-normal/arm64/PKCE.o",
+    "swift-dependencies" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphonesimulator/EmotionPlay.build/Objects-normal/arm64/PKCE.swiftdeps"
+  },
+  "/Users/wongwilson/Downloads/EmotionPlay/EmotionPlay/Services/ReccoBeatsClient.swift" : {
+    "const-values" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphonesimulator/EmotionPlay.build/Objects-normal/arm64/ReccoBeatsClient.swiftconstvalues",
+    "dependencies" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphonesimulator/EmotionPlay.build/Objects-normal/arm64/ReccoBeatsClient.d",
+    "diagnostics" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphonesimulator/EmotionPlay.build/Objects-normal/arm64/ReccoBeatsClient.dia",
+    "object" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphonesimulator/EmotionPlay.build/Objects-normal/arm64/ReccoBeatsClient.o",
+    "swift-dependencies" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphonesimulator/EmotionPlay.build/Objects-normal/arm64/ReccoBeatsClient.swiftdeps"
+  },
+  "/Users/wongwilson/Downloads/EmotionPlay/EmotionPlay/Services/RemoteMoodInferencer.swift" : {
+    "const-values" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphonesimulator/EmotionPlay.build/Objects-normal/arm64/RemoteMoodInferencer.swiftconstvalues",
+    "dependencies" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphonesimulator/EmotionPlay.build/Objects-normal/arm64/RemoteMoodInferencer.d",
+    "diagnostics" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphonesimulator/EmotionPlay.build/Objects-normal/arm64/RemoteMoodInferencer.dia",
+    "object" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphonesimulator/EmotionPlay.build/Objects-normal/arm64/RemoteMoodInferencer.o",
+    "swift-dependencies" : "/Users/wongwilson/Downloads/EmotionPlay/build/EmotionPlay.build/Debug-iphonesimulator/EmotionPlay.build/Objects-normal/arm64/RemoteMoodInferencer.swiftdeps"
+  }
+}

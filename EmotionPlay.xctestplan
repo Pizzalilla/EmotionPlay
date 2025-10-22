@@ -1,0 +1,31 @@
+{
+  "configurations" : [
+    {
+      "id" : "C4472A99-46D0-4E13-A05B-AB865A11BB98",
+      "name" : "Configuration 1",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "testTimeoutsEnabled" : true
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:EmotionPlay.xcodeproj",
+        "identifier" : "C75605D12E5C692D000B07DF",
+        "name" : "EmotionPlayUITests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:EmotionPlay.xcodeproj",
+        "identifier" : "C75605C72E5C692D000B07DF",
+        "name" : "EmotionPlayTests"
+      }
+    }
+  ],
+  "version" : 1
+}
